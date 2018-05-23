@@ -2,65 +2,63 @@ package com.javafortesters.chap014junit.examples;
 
 import com.javafortesters.domainentities.interim.exceptions.custom.InvalidPassword;
 import com.javafortesters.domainentities.interim.exceptions.custom.User;
-import org.junit.*;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class JunitReferenceTest {
 
-    @BeforeClass
-    public static void runOncePerClassBeforeAnyTests(){
+    //@BeforeClass
+    public static void runOncePerClassBeforeAnyTests() {
         System.out.println("@BeforeClass method");
     }
 
-    @Before
-    public void runBeforeEveryTestMethod(){
+    //@Before
+    public void runBeforeEveryTestMethod() {
         System.out.println("@Before each method");
     }
 
     @Test
-    public void thisTestWillNeverFail(){
+    public void thisTestWillNeverFail() {
     }
 
-    @Test(expected=InvalidPassword.class)
+    //@Test(expected=InvalidPassword.class)
     public void expectInvalidPasswordException() throws InvalidPassword {
         User user = new User("username", "<6");
     }
 
 
-
-    @Test(expected=AssertionError.class)
-    public void junitFailWithDescription(){
+    //@Test(expected=AssertionError.class)
+    public void junitFailWithDescription() {
         fail("fail always fails");
     }
 
-    @Test(expected=AssertionError.class)
-    public void junitFailWithoutDescription(){
+    //@Test(expected=AssertionError.class)
+    public void junitFailWithoutDescription() {
         fail();
     }
 
-    @Ignore
+    //@Ignore
     @Test
-    public void thisTestIsIgnored(){
+    public void thisTestIsIgnored() {
         throw new NullPointerException();
     }
 
-    @Ignore("Because it is not finished yet")
+    //@Ignore("Because it is not finished yet")
     @Test
-    public void thisTestIsIgnoredBecauseItIsNotFinished(){
+    public void thisTestIsIgnoredBecauseItIsNotFinished() {
     }
 
-    @After
-    public void runAfterEveryTestMethod(){
+    //@After
+    public void runAfterEveryTestMethod() {
         System.out.println("@After each method");
     }
 
-    @AfterClass
-    public static void runOncePerClassAfterAllTests(){
+    //@AfterClass
+    public static void runOncePerClassAfterAllTests() {
         System.out.println("@AfterClass method");
     }
 }

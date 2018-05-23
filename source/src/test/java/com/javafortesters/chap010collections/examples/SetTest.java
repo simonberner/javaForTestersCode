@@ -1,16 +1,18 @@
 package com.javafortesters.chap010collections.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SetTest {
 
     @Test
-    public void setExplored(){
+    public void setExplored() {
 
         Set<String> seta = new HashSet<String>();
         Set<String> setb = new <String>HashSet();
@@ -18,7 +20,7 @@ public class SetTest {
     }
 
     @Test
-    public void setDoesNotAllowDuplicateElements(){
+    public void setDoesNotAllowDuplicateElements() {
         Set workdays = new HashSet();
 
         workdays.add("Monday");

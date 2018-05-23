@@ -1,35 +1,36 @@
 package com.javafortesters.chap015stringsrevisited.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.UnsupportedEncodingException;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StringsRevisitedTest {
 
     @Test
-    public void aStringLiteralIsAnObject(){
+    public void aStringLiteralIsAnObject() {
         assertThat("hello".length(), is(5));
     }
 
 
     @Test
-    public void canOutputStringsToTheConsole(){
-        int i=4;
+    public void canOutputStringsToTheConsole() {
+        int i = 4;
         System.out.println("Print an int to the console " + i);
     }
 
     @Test
-    public void canUseEscapeSequencesInAString(){
+    public void canUseEscapeSequencesInAString() {
         System.out.println("Bob said \"hello\" to his cat's friend");
         System.out.println("This is a single backslash \\");
     }
 
 
     @Test
-    public void canConcatenateStringsInDifferentWays(){
+    public void canConcatenateStringsInDifferentWays() {
         String thisIs = "This is ";
         String s1 = thisIs.concat("String1");
         assertThat(s1, is("This is String1"));
@@ -41,7 +42,7 @@ public class StringsRevisitedTest {
     }
 
     @Test
-    public void canConvertToStrings(){
+    public void canConvertToStrings() {
         String intConcatConvert = "" + 1;
         assertThat(intConcatConvert, is("1"));
 
@@ -53,14 +54,12 @@ public class StringsRevisitedTest {
     }
 
     @Test
-    public void canConvertFromStrings(){
+    public void canConvertFromStrings() {
         assertThat(Integer.valueOf("2"), is(2));
 
-        char[] cArray = {'2','3'};
+        char[] cArray = {'2', '3'};
         assertThat("23".toCharArray(), is(cArray));
     }
-
-
 
 
     @Test

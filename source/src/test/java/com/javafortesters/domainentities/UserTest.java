@@ -1,18 +1,19 @@
 package com.javafortesters.domainentities;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTest {
 
     @Test
-    public void canConstructANewUser(){
+    public void canConstructANewUser() {
         User user = new User();
     }
 
     @Test
-    public void userHasDefaultUsernameAndPassword(){
+    public void userHasDefaultUsernameAndPassword() {
 
         User user = new User();
 
@@ -26,7 +27,7 @@ public class UserTest {
     }
 
     @Test
-    public void canConstructWithUsernameAndPassword(){
+    public void canConstructWithUsernameAndPassword() {
 
         User user = new User("admin", "pA55w0rD");
 
@@ -40,7 +41,7 @@ public class UserTest {
     }
 
     @Test
-    public void canSetPasswordAfterConstructed(){
+    public void canSetPasswordAfterConstructed() {
 
         User user = new User();
 

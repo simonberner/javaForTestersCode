@@ -1,6 +1,6 @@
 package com.javafortesters.chap019files.examples;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 
@@ -18,19 +18,19 @@ public class ReadTextFilesTest {
 
         int lineCount = 0;
 
-        try{
+        try {
             String line;
 
             // readLine returns null when it reaches the end of the file
-            while((line = reader.readLine())!=null){
+            while ((line = reader.readLine()) != null) {
                 // readline strips off the end of line characters
-                System.out.println("line number " + line.replace("line ",""));
-                lineCount ++;
+                System.out.println("line number " + line.replace("line ", ""));
+                lineCount++;
             }
 
             assertThat(lineCount, is(5));
 
-        }finally{
+        } finally {
             reader.close();
         }
     }
@@ -42,12 +42,12 @@ public class ReadTextFilesTest {
         File inputFile = writeTheTestDataFile();
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 
-        try{
+        try {
             String line;
-            while((line = reader.readLine())!=null){
+            while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
-        }finally{
+        } finally {
             reader.close();
         }
     }
@@ -55,10 +55,10 @@ public class ReadTextFilesTest {
     private File writeTheTestDataFile() throws IOException {
         File outputFile = File.createTempFile("forReading", null);
         PrintWriter print = new PrintWriter(
-                                new BufferedWriter(
-                                    new FileWriter(outputFile)));
+                new BufferedWriter(
+                        new FileWriter(outputFile)));
 
-        for(int lineNumber = 1; lineNumber < 6; lineNumber++){
+        for (int lineNumber = 1; lineNumber < 6; lineNumber++) {
             print.println("line " + lineNumber);
         }
 

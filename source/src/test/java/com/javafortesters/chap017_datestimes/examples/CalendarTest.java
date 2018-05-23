@@ -1,6 +1,7 @@
 package com.javafortesters.chap017_datestimes.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
 import java.util.Date;

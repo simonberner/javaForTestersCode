@@ -1,6 +1,7 @@
 package com.javafortesters.chap020mathbigdecimal.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -10,8 +11,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MathAndBigDecimalTest {
 
-    @Test(expected = java.lang.AssertionError.class)
-    public void whyBigDecimal(){
+    //@Test(expected = java.lang.AssertionError.class)
+    public void whyBigDecimal() {
         // 10 pence + 73 pence = 83 pence
         float total = 0.1f + 0.73f;
         assertThat(total, is(0.83f));
@@ -19,13 +20,13 @@ public class MathAndBigDecimalTest {
     }
 
     @Test
-    public void usingBigDecimal(){
+    public void usingBigDecimal() {
         BigDecimal bdtotal = new BigDecimal("0.1").add(new BigDecimal("0.73"));
         assertThat(bdtotal, is(new BigDecimal("0.83")));
     }
 
     @Test
-    public void bigDecimalConstructor(){
+    public void bigDecimalConstructor() {
 
         BigDecimal fromInt = new BigDecimal(5);
         BigDecimal fromLong = new BigDecimal(5L);
@@ -40,26 +41,26 @@ public class MathAndBigDecimalTest {
     }
 
     @Test
-    public void bigDecimalStaticMethods(){
+    public void bigDecimalStaticMethods() {
 
-       BigDecimal bd0 = BigDecimal.ZERO;
-       BigDecimal bd1 = BigDecimal.ONE;
-       BigDecimal bd10 = BigDecimal.TEN;
-       BigDecimal bdVal = BigDecimal.valueOf(5.0);
+        BigDecimal bd0 = BigDecimal.ZERO;
+        BigDecimal bd1 = BigDecimal.ONE;
+        BigDecimal bd10 = BigDecimal.TEN;
+        BigDecimal bdVal = BigDecimal.valueOf(5.0);
 
-       assertThat(bd0, is(new BigDecimal("0")));
-       assertThat(bd1, is(new BigDecimal("1")));
-       assertThat(bd10, is(BigDecimal.valueOf(10L)));
-       assertThat(bdVal, is(new BigDecimal("5.0")));
+        assertThat(bd0, is(new BigDecimal("0")));
+        assertThat(bd1, is(new BigDecimal("1")));
+        assertThat(bd10, is(BigDecimal.valueOf(10L)));
+        assertThat(bdVal, is(new BigDecimal("5.0")));
 
-       assertThat( BigDecimal.ONE.equals(
-                       new BigDecimal(1.0)), is(true));
-       assertThat( BigDecimal.ONE.equals(
-                       new BigDecimal("1")), is(true));
+        assertThat(BigDecimal.ONE.equals(
+                new BigDecimal(1.0)), is(true));
+        assertThat(BigDecimal.ONE.equals(
+                new BigDecimal("1")), is(true));
     }
 
     @Test
-    public void bigDecimalGreaterThanLessThan(){
+    public void bigDecimalGreaterThanLessThan() {
 
         assertThat(
                 BigDecimal.TEN.compareTo(BigDecimal.ONE) > 0
@@ -67,9 +68,9 @@ public class MathAndBigDecimalTest {
     }
 
     @Test
-    public void maxTest(){
+    public void maxTest() {
 
-        assertThat( Math.max(23.0, 42.0), is(42.0));
+        assertThat(Math.max(23.0, 42.0), is(42.0));
     }
 
 }

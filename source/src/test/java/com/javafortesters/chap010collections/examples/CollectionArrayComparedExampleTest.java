@@ -1,20 +1,21 @@
 package com.javafortesters.chap010collections.examples;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class CollectionArrayComparedExampleTest {
 
     @Test
-    public void simpleArrayExample(){
+    public void simpleArrayExample() {
         String[] numbers0123 = {"zero", "one", "two", "three"};
 
-        for(String numberText : numbers0123){
+        for (String numberText : numbers0123) {
             System.out.println(numberText);
         }
 
@@ -23,11 +24,11 @@ public class CollectionArrayComparedExampleTest {
     }
 
     @Test
-    public void simpleCollectionExample(){
+    public void simpleCollectionExample() {
         String[] numbers0123Array = {"zero", "one", "two", "three"};
         List<String> numbers0123 = Arrays.asList(numbers0123Array);
 
-        for(String numberText : numbers0123){
+        for (String numberText : numbers0123) {
             System.out.println(numberText);
         }
 
@@ -36,7 +37,7 @@ public class CollectionArrayComparedExampleTest {
     }
 
     @Test
-    public void simpleDynamicCollectionExample(){
+    public void simpleDynamicCollectionExample() {
         List<String> numbers0123 = new ArrayList<String>();
 
         numbers0123.add("zero");
@@ -44,7 +45,7 @@ public class CollectionArrayComparedExampleTest {
         numbers0123.add("two");
         numbers0123.add("three");
 
-        for(String numberText : numbers0123){
+        for (String numberText : numbers0123) {
             System.out.println(numberText);
         }
 

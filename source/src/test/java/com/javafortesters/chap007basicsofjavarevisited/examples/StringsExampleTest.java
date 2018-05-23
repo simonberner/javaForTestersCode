@@ -1,23 +1,24 @@
 package com.javafortesters.chap007basicsofjavarevisited.examples;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringsExampleTest {
 
     @Test
-    public void stringsConcatenated(){
+    public void stringsConcatenated() {
         assertEquals("123456", "12" + "34" + "56");
     }
 
     @Test
-    public void someStringMethods(){
+    public void someStringMethods() {
         String aString = "abcdef";
 
         assertEquals(6, aString.length());
-        assertTrue(aString.compareToIgnoreCase("ABCDEF")==0);
+        assertTrue(aString.compareToIgnoreCase("ABCDEF") == 0);
         assertTrue(aString.contains("bcde"));
         assertTrue(aString.startsWith("abc"));
 

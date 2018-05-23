@@ -3,18 +3,19 @@ package com.javafortesters.chap021collectionsrevisited.examples;
 
 import com.javafortesters.domainentities.User;
 import com.javafortesters.domainentities.UserComparator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class SortedMapTest {
 
     @Test
-    public void exploreSortedMap(){
+    public void exploreSortedMap() {
         SortedMap<String, String> map = new TreeMap<>();
 
         /*
@@ -28,7 +29,7 @@ public class SortedMapTest {
     }
 
     @Test
-    public void firstLastKeyTest(){
+    public void firstLastKeyTest() {
         SortedMap<String, String> map = new TreeMap<>();
 
         map.put("key1", "value1");
@@ -43,7 +44,7 @@ public class SortedMapTest {
 
 
     @Test
-    public void subMaps(){
+    public void subMaps() {
 
         SortedMap<String, String> map = new TreeMap<>();
 
@@ -79,15 +80,15 @@ public class SortedMapTest {
 
 
     @Test
-    public void sortedMapWithComparatorForUser(){
+    public void sortedMapWithComparatorForUser() {
         User bob = new User("Bob", "pA55Word");   // 11
         User tiny = new User("TinyTim", "hello"); //12
         User rich = new User("Richie", "RichieRichieRich"); // 22
         User sun = new User("sun", "tzu"); // 6
         User mrBeer = new User("Stafford", "sys"); // 11
 
-        SortedMap<User,String> userSortedMap =
-                new TreeMap<User,String>(new UserComparator());
+        SortedMap<User, String> userSortedMap =
+                new TreeMap<User, String>(new UserComparator());
 
         userSortedMap.put(bob, "Bob rules");
         userSortedMap.put(tiny, "Tiny Time");

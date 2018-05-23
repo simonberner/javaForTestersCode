@@ -1,15 +1,17 @@
 package com.javafortesters.chap009arraysiteration.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class MultiDimensionalArraysTest {
 
     @Test
-    public void createAMultiDimensionalArray(){
+    public void createAMultiDimensionalArray() {
 
         int[][] multi = new int[4][4];
 
@@ -29,12 +31,12 @@ public class MultiDimensionalArraysTest {
 
     }
 
-    public void print2DIntArray(int [][]multi){
-        for(int[] outer : multi){
-            if(outer==null){
+    public void print2DIntArray(int[][] multi) {
+        for (int[] outer : multi) {
+            if (outer == null) {
                 System.out.print("null");
-            }else{
-                for(int inner : outer){
+            } else {
+                for (int inner : outer) {
                     System.out.print(inner + ",");
                 }
             }
@@ -43,11 +45,11 @@ public class MultiDimensionalArraysTest {
     }
 
     @Test
-    public void createAndDefineAMultiArray(){
-        int[][] multi = {{1,2,3,4},
-                         {5,6,7,8},
-                         {9,10,11,12},
-                         {13,14,15,16}};
+    public void createAndDefineAMultiArray() {
+        int[][] multi = {{1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11, 12},
+                {13, 14, 15, 16}};
 
         assertEquals(1, multi[0][0]);
         assertEquals(7, multi[1][2]);
@@ -58,7 +60,7 @@ public class MultiDimensionalArraysTest {
     }
 
     @Test
-    public void createA3DArrayArray(){
+    public void createA3DArrayArray() {
         int[][][] multi3d = new int[3][4][5];
 
         assertEquals(3, multi3d.length);
@@ -73,11 +75,11 @@ public class MultiDimensionalArraysTest {
     }
 
     @Test
-    public void ragged2DArray(){
-        int[][] ragged2d = {{1,2,3,4},
-                            {5,6},
-                            {7,8,9}
-                            };
+    public void ragged2DArray() {
+        int[][] ragged2d = {{1, 2, 3, 4},
+                {5, 6},
+                {7, 8, 9}
+        };
 
         assertEquals(4, ragged2d[0].length);
         assertEquals(2, ragged2d[1].length);
@@ -93,9 +95,9 @@ public class MultiDimensionalArraysTest {
 
 
     @Test
-    public void createRagged2dArray(){
+    public void createRagged2dArray() {
 
-        int[][] ragged2d= new int[10][];
+        int[][] ragged2d = new int[10][];
 
         ragged2d[0] = new int[10];
         ragged2d[1] = new int[3];
@@ -105,8 +107,8 @@ public class MultiDimensionalArraysTest {
     }
 
     @Test
-    public void createRagged3dArray(){
-        int[][][] ragged3d= new int[10][][];
+    public void createRagged3dArray() {
+        int[][][] ragged3d = new int[10][][];
     }
 
 

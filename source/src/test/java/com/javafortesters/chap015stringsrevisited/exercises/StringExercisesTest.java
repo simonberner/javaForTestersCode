@@ -1,22 +1,22 @@
 package com.javafortesters.chap015stringsrevisited.exercises;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.UnsupportedEncodingException;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringExercisesTest {
 
     @Test
-    public void tryUsingTheOtherEscapeCharactersOutputToConsole(){
+    public void tryUsingTheOtherEscapeCharactersOutputToConsole() {
         System.out.println("New lines, and Tabs");
-            String firstLine = "|first line\n";
-            String secondLine = "|\tsecond line\n";
-            String thirdLine = "|\t\tthird line\n";
-            String fullLine = firstLine + secondLine + thirdLine;
+        String firstLine = "|first line\n";
+        String secondLine = "|\tsecond line\n";
+        String thirdLine = "|\t\tthird line\n";
+        String fullLine = firstLine + secondLine + thirdLine;
         System.out.println(fullLine);
 
         System.out.println("Carriage return after each word");
@@ -30,12 +30,12 @@ public class StringExercisesTest {
     }
 
     @Test
-    public void canConstructStrings(){
+    public void canConstructStrings() {
 
         String empty = new String();
         assertThat(empty.length(), is(0));
 
-        char[] cArray = {'2','3'};
+        char[] cArray = {'2', '3'};
         assertThat(new String(cArray), is("23"));
         assertThat(new String(cArray, 1, 1), is("3"));
 
@@ -56,8 +56,8 @@ public class StringExercisesTest {
 
 
     @Test
-    public void exerciseUseRegionMatches(){
+    public void exerciseUseRegionMatches() {
         String hello = "Hello fella";
-        assertTrue(hello.regionMatches(true, 9,"young lady",6,2));
+        assertTrue(hello.regionMatches(true, 9, "young lady", 6, 2));
     }
 }

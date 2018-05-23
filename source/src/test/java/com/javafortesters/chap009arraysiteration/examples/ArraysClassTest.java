@@ -1,32 +1,33 @@
 package com.javafortesters.chap009arraysiteration.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class ArraysClassTest {
 
     String[] workdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
     @Test
-    public void sortArrayOfString(){
-        String[] outOfOrder = {"one","Two", "three", "Four", "five"};
+    public void sortArrayOfString() {
+        String[] outOfOrder = {"one", "Two", "three", "Four", "five"};
 
         Arrays.sort(outOfOrder);
 
-        for(int i=0; i<outOfOrder.length-1; i++){
-            assertTrue("compareTo returns -1 if string is 'less' than comparison",
-                    outOfOrder[i].compareTo(outOfOrder[i + 1]) < 0);
+        for (int i = 0; i < outOfOrder.length - 1; i++) {
+            assertTrue(outOfOrder[i].compareTo(outOfOrder[i + 1]) < 0, "compareTo returns -1 if string is 'less' than comparison");
         }
     }
 
 
     @Test
-    public void sortArrayOfInt(){
-        int[] outOfOrder = {2,4,3,1,5,0};
+    public void sortArrayOfInt() {
+        int[] outOfOrder = {2, 4, 3, 1, 5, 0};
 
         Arrays.sort(outOfOrder);
 
@@ -37,28 +38,28 @@ public class ArraysClassTest {
         assertEquals(4, outOfOrder[4]);
         assertEquals(5, outOfOrder[5]);
 
-        for(int i=0; i<outOfOrder.length; i++){
+        for (int i = 0; i < outOfOrder.length; i++) {
             assertEquals(i, outOfOrder[i]);
         }
     }
 
     @Test
-    public void fillAnArray(){
+    public void fillAnArray() {
 
         int[] minusOne = new int[30];
-        Arrays.fill(minusOne,-1);
+        Arrays.fill(minusOne, -1);
 
-        for(int arrayInt : minusOne){
+        for (int arrayInt : minusOne) {
             assertEquals(-1, arrayInt);
         }
     }
 
     @Test
-    public void fillPartOfAnArray(){
-        int[] tenItems = {0,0,0,0,0,1,1,1,1,1};
+    public void fillPartOfAnArray() {
+        int[] tenItems = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1};
 
         // fill cells 5 - 9 with '2'
-        Arrays.fill(tenItems,5,10,2);
+        Arrays.fill(tenItems, 5, 10, 2);
 
         // 0 - 4 are untouched
         assertEquals(0, tenItems[0]);
@@ -73,7 +74,7 @@ public class ArraysClassTest {
     }
 
     @Test
-    public void copyOfRange(){
+    public void copyOfRange() {
 
         String[] weekDays = Arrays.copyOfRange(workdays, 2, 5);
 
@@ -88,7 +89,7 @@ public class ArraysClassTest {
     }
 
     @Test
-    public void copyOfRangeResize(){
+    public void copyOfRangeResize() {
         String[] weekDays = Arrays.copyOfRange(workdays, 2, 7);
 
         assertEquals(5, weekDays.length);
@@ -104,17 +105,17 @@ public class ArraysClassTest {
 
 
     @Test
-    public void integerArrayDefaultsOnIncrease(){
+    public void integerArrayDefaultsOnIncrease() {
 
         int[] ints = {1, 2, 3};
 
-        int[] five = Arrays.copyOf(ints,5);
+        int[] five = Arrays.copyOf(ints, 5);
         assertEquals(3, five[2]);
         assertEquals(0, five[3]);
     }
 
     @Test
-    public void arraysCopyOfAndResize(){
+    public void arraysCopyOfAndResize() {
 
         String[] weekDays;
         weekDays = Arrays.copyOf(workdays, 7);
@@ -122,34 +123,34 @@ public class ArraysClassTest {
         weekDays[5] = "Saturday";
         weekDays[6] = "Sunday";
 
-        String days="";
-        for(String day: weekDays){
+        String days = "";
+        for (String day : weekDays) {
             days = days + "|" + day;
         }
 
         assertEquals(7, weekDays.length);
-        assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday",days);
+        assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday", days);
     }
 
     @Test
-    public void arraysCopyOfAndResizeEmpty(){
+    public void arraysCopyOfAndResizeEmpty() {
         String[] weekDays;
         weekDays = Arrays.copyOf(workdays, 7);
 
         assertEquals(null, weekDays[5]);
         assertEquals(null, weekDays[6]);
 
-        String days="";
-        for(String day: weekDays){
+        String days = "";
+        for (String day : weekDays) {
             days = days + "|" + day;
         }
 
         assertEquals(7, weekDays.length);
-        assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday|null|null",days);
+        assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday|null|null", days);
     }
 
     @Test
-    public void arraysCopyOfAndTruncate(){
+    public void arraysCopyOfAndTruncate() {
         String[] weekDays;
         weekDays = Arrays.copyOf(workdays, 3);
 
@@ -160,17 +161,17 @@ public class ArraysClassTest {
     }
 
     @Test
-    public void arraysCopyOfSameSize(){
+    public void arraysCopyOfSameSize() {
         String[] weekDays;
 
         weekDays = Arrays.copyOf(workdays, workdays.length);
 
-        String days="";
-        for(String day: weekDays){
+        String days = "";
+        for (String day : weekDays) {
             days = days + "|" + day;
         }
 
         assertEquals(5, weekDays.length);
-        assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday",days);
+        assertEquals("|Monday|Tuesday|Wednesday|Thursday|Friday", days);
     }
 }

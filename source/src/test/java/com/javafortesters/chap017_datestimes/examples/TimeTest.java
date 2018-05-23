@@ -1,17 +1,19 @@
 package com.javafortesters.chap017_datestimes.examples;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TimeTest {
 
     @Test
-    public void currentTimeMillis(){
+    public void currentTimeMillis() {
         long startTime = System.currentTimeMillis();
 
-        for(int x=0; x < 10; x++){
+        for (int x = 0; x < 10; x++) {
             System.out.println("Current Time " +
-                                System.currentTimeMillis());
+                    System.currentTimeMillis());
         }
 
         long endTime = System.currentTimeMillis();
@@ -19,12 +21,12 @@ public class TimeTest {
     }
 
     @Test
-    public void createAUniqueUserID(){
+    public void createAUniqueUserID() {
 
         String userID = "user" + System.currentTimeMillis();
 
         System.out.println(userID);
-        Assert.assertTrue(userID.startsWith("user"));
-        Assert.assertTrue(Long.valueOf(userID.replace("user",""))>1000L);
+        assertTrue(userID.startsWith("user"));
+        assertTrue(Long.valueOf(userID.replace("user", "")) > 1000L);
     }
 }

@@ -1,7 +1,7 @@
 package com.javafortesters.chap019files.exercises;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -9,6 +9,7 @@ import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FileExercisesTest {
 
@@ -28,11 +29,11 @@ public class FileExercisesTest {
 
 
     @Test
-    public void writeOutTheFileListRoots(){
+    public void writeOutTheFileListRoots() {
         File[] roots = File.listRoots();
-        Assert.assertTrue(roots.length > 0);
+        assertTrue(roots.length > 0);
 
-        for(File aFile : roots){
+        for (File aFile : roots) {
             System.out.println(aFile.getAbsolutePath());
         }
     }
@@ -55,7 +56,6 @@ public class FileExercisesTest {
     }
 
 
-
     @Test
     public void writeATestToCheckCanonicalConversion() throws IOException {
 
@@ -64,15 +64,15 @@ public class FileExercisesTest {
         File canonical = new File("C:/1");
 
         assertThat(trimOsStuff(
-                        canonical.getAbsolutePath()),
+                canonical.getAbsolutePath()),
                 is(trimOsStuff(
                         canonical.getCanonicalPath())));
         assertThat(trimOsStuff(
-                        canonical.getAbsolutePath()),
+                canonical.getAbsolutePath()),
                 is(trimOsStuff(
                         absolute1.getCanonicalPath())));
         assertThat(trimOsStuff(
-                        canonical.getAbsolutePath()),
+                canonical.getAbsolutePath()),
                 is(trimOsStuff(
                         absolute2.getCanonicalPath())));
 
@@ -90,13 +90,13 @@ public class FileExercisesTest {
         int posOfDrive = absolutePath.indexOf("C:");
         String pathWithoutOsPrefixes = absolutePath.substring(posOfDrive);
         System.out.println(String.format(
-                "trimOsStuff: %s became %s",absolutePath, pathWithoutOsPrefixes));
+                "trimOsStuff: %s became %s", absolutePath, pathWithoutOsPrefixes));
         return pathWithoutOsPrefixes;
     }
 
 
     @Test
-    public void checkThatTheTempDirectoryIsADirectory(){
+    public void checkThatTheTempDirectoryIsADirectory() {
         File tempDir = new File(System.getProperty("java.io.tmpdir"));
 
         assertThat(tempDir.isDirectory(), is(true));
@@ -141,24 +141,24 @@ public class FileExercisesTest {
         File outputFile = writeTheTestDataFile(5);
         assertThat(outputFile.length(), is(expectedFileSize(5)));
 
-        System.out.println("Length " + outputFile.length() );
-        System.out.println("Free " + freeSpace );
-        System.out.println("Total " + totalSpace );
+        System.out.println("Length " + outputFile.length());
+        System.out.println("Free " + freeSpace);
+        System.out.println("Total " + totalSpace);
         System.out.println("Usable " + usableSpace);
     }
 
-    private long expectedFileSize(int lines){
+    private long expectedFileSize(int lines) {
         String lineEnd = System.lineSeparator();
-        return (("line x".length() + lineEnd.length())*lines);
+        return (("line x".length() + lineEnd.length()) * lines);
     }
 
     private File writeTheTestDataFile(int lines) throws IOException {
         File outputFile = File.createTempFile(
-                                    "forReading" + lines + "_", null);
+                "forReading" + lines + "_", null);
         PrintWriter print = new PrintWriter(
-                                new BufferedWriter(
-                                        new FileWriter(outputFile)));
-        for(int line=0; line<lines; line++){
+                new BufferedWriter(
+                        new FileWriter(outputFile)));
+        for (int line = 0; line < lines; line++) {
             print.println("line " + lines);
         }
         print.close();
@@ -166,17 +166,16 @@ public class FileExercisesTest {
     }
 
 
-
     @Test
-    public void listTempDirectory(){
+    public void listTempDirectory() {
         File tempDir = new File(System.getProperty("java.io.tmpdir"));
         File[] fileList = tempDir.listFiles();
 
-        for(File fileInList : fileList){
+        for (File fileInList : fileList) {
             String outputString = "";
-            if(fileInList.isDirectory()){
+            if (fileInList.isDirectory()) {
                 outputString = outputString + "DIR: ";
-            }else{
+            } else {
                 outputString = outputString + "FIL: ";
             }
 
@@ -187,33 +186,33 @@ public class FileExercisesTest {
 
 
     @Test
-    public void listTempDirectoryAttribs(){
+    public void listTempDirectoryAttribs() {
         File tempDir = new File(System.getProperty("java.io.tmpdir"));
         File[] fileList = tempDir.listFiles();
 
-        for(File fileInList : fileList){
+        for (File fileInList : fileList) {
             String outputString = "";
-            if(fileInList.isDirectory()){
+            if (fileInList.isDirectory()) {
                 outputString = outputString + "DIR: ";
-            }else{
+            } else {
                 outputString = outputString + "FIL: ";
             }
 
-            if(fileInList.canRead()){
+            if (fileInList.canRead()) {
                 outputString = outputString + "r";
-            }else{
+            } else {
                 outputString = outputString + "-";
             }
 
-            if(fileInList.canWrite()){
+            if (fileInList.canWrite()) {
                 outputString = outputString + "w";
-            }else{
+            } else {
                 outputString = outputString + "-";
             }
 
-            if(fileInList.canExecute()){
+            if (fileInList.canExecute()) {
                 outputString = outputString + "x";
-            }else{
+            } else {
                 outputString = outputString + "-";
             }
 
@@ -221,7 +220,7 @@ public class FileExercisesTest {
 
             SimpleDateFormat sdf = new SimpleDateFormat("y M d HH:mm:ss.SSS");
             String lastModified =
-                            sdf.format(new Date(fileInList.lastModified()));
+                    sdf.format(new Date(fileInList.lastModified()));
 
             outputString = outputString + " => " + lastModified;
             System.out.println(outputString);

@@ -1,7 +1,6 @@
 package com.javafortesters.chap019files.examples;
 
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import static org.hamcrest.CoreMatchers.is;

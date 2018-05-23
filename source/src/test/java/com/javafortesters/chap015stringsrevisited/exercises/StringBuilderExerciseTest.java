@@ -1,14 +1,15 @@
 package com.javafortesters.chap015stringsrevisited.exercises;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StringBuilderExerciseTest {
 
     @Test
-    public void capacitySizeIncreasesAutomaticallyWithAppend(){
+    public void capacitySizeIncreasesAutomaticallyWithAppend() {
         StringBuilder builder = new StringBuilder(5);
         assertThat(builder.capacity(), is(5));
         builder.append("Hello World");
@@ -16,20 +17,20 @@ public class StringBuilderExerciseTest {
     }
 
     @Test
-    public void writeATestToInsert(){
+    public void writeATestToInsert() {
 
         StringBuilder builder = new StringBuilder();
 
         // insert at start
-        builder.insert(0,"a");
+        builder.insert(0, "a");
         assertThat(builder.toString(), is("a"));
 
         // insert to end
-        builder.insert(builder.toString().length(),"b");
+        builder.insert(builder.toString().length(), "b");
         assertThat(builder.toString(), is("ab"));
 
         // insert to middle
-        builder.insert(1,".");
+        builder.insert(1, ".");
         assertThat(builder.toString(), is("a.b"));
     }
 }

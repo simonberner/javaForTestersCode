@@ -1,16 +1,17 @@
 package com.javafortesters.chap015stringsrevisited.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringComparisonsTest {
 
     @Test
-    public void canCompareToString(){
+    public void canCompareToString() {
         String hello = "Hello";
         assertThat(hello.compareTo("Hello"), is(0));
 
@@ -28,7 +29,7 @@ public class StringComparisonsTest {
     }
 
     @Test
-    public void canCheckContainsOnString(){
+    public void canCheckContainsOnString() {
         String hello = "Hello";
         assertThat(hello.contains("He"), is(true));
         assertThat(hello.contains("Hello"), is(true));
@@ -41,7 +42,7 @@ public class StringComparisonsTest {
     }
 
     @Test
-    public void canCheckContentEquals(){
+    public void canCheckContentEquals() {
         String hello = "Hello";
         assertThat(hello.contentEquals("Hello"), is(true));
         assertThat(hello.contentEquals("hello"), is(false));
@@ -50,7 +51,7 @@ public class StringComparisonsTest {
     }
 
     @Test
-    public void canCheckEndsWithStartsWith(){
+    public void canCheckEndsWithStartsWith() {
         String hello = "Hello";
         assertThat(hello.endsWith("Hello"), is(true));
         assertThat(hello.endsWith(""), is(true));
@@ -65,7 +66,7 @@ public class StringComparisonsTest {
     }
 
     @Test
-    public void canCheckEmpty(){
+    public void canCheckEmpty() {
 
         String empty = "";
         assertThat(empty.isEmpty(), is(true));
@@ -77,7 +78,7 @@ public class StringComparisonsTest {
     }
 
     @Test
-    public void canFindIndexOf(){
+    public void canFindIndexOf() {
         /*
          "Hello fella"
           01234567890
@@ -87,11 +88,11 @@ public class StringComparisonsTest {
         assertThat(hello.indexOf("l"), is(2));
         assertThat(hello.lastIndexOf("l"), is(9));
 
-        assertThat(hello.indexOf('l',3), is(3));
-        assertThat(hello.indexOf("l",4), is(8));
+        assertThat(hello.indexOf('l', 3), is(3));
+        assertThat(hello.indexOf("l", 4), is(8));
 
-        assertThat(hello.lastIndexOf('l',8), is(8));
-        assertThat(hello.lastIndexOf("l",7), is(3));
+        assertThat(hello.lastIndexOf('l', 8), is(8));
+        assertThat(hello.lastIndexOf("l", 7), is(3));
 
 
         assertThat(hello.indexOf('z'), is(-1));
@@ -100,7 +101,7 @@ public class StringComparisonsTest {
 
 
     @Test
-    public void checkRegionMatches(){
+    public void checkRegionMatches() {
 
         String hello = "Hello fella";
         assertThat(

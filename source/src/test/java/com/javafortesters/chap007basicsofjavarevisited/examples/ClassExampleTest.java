@@ -1,18 +1,19 @@
 package com.javafortesters.chap007basicsofjavarevisited.examples;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ClassExampleTest {
 
     @Test
-    public void bigBadTestForClassExample(){
+    public void bigBadTestForClassExample() {
         assertEquals(ClassExample.CONSTANT,
-                    "a constant string");
+                "a constant string");
 
         assertEquals(ClassExample.aClassField,
-                     "a class field");
+                "a class field");
 
         ClassExample.aClassField = "new value";
 
@@ -28,7 +29,7 @@ public class ClassExampleTest {
         assertEquals("test", instance.getName());
 
         assertEquals(instance.aClassField,
-                     "new value");
+                "new value");
 
         instance.aClassField = "changed";
 

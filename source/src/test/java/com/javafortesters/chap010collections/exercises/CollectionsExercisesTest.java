@@ -1,35 +1,37 @@
 package com.javafortesters.chap010collections.exercises;
 
 import com.javafortesters.domainentities.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class CollectionsExercisesTest {
 
 
-
     @Test
-    public void useAForLoopInsteadOfAWhile(){
+    public void useAForLoopInsteadOfAWhile() {
 
-        String[] someDays = {"Tuesday","Thursday",
-                "Wednesday","Monday",
-                "Saturday","Sunday",
+        String[] someDays = {"Tuesday", "Thursday",
+                "Wednesday", "Monday",
+                "Saturday", "Sunday",
                 "Friday"};
 
         List<String> days = Arrays.asList(someDays);
 
         int forwhile;
-        for(forwhile=0; !days.get(forwhile).equals("Monday"); forwhile++){
+        for (forwhile = 0; !days.get(forwhile).equals("Monday"); forwhile++) {
         }
-        assertEquals("Monday is at position 3", 3, forwhile);
+        assertEquals(3, forwhile, "Monday is at position 3");
     }
 
 
     @Test
-    public void createAndManipulateACollectionOfUsers(){
+    public void createAndManipulateACollectionOfUsers() {
         Collection<User> someUsers = new ArrayList<User>();
 
         User bob = new User("bob", "Passw0rd");
@@ -65,7 +67,7 @@ public class CollectionsExercisesTest {
 
 
     @Test
-    public void createAndManipulateAListOfUsers(){
+    public void createAndManipulateAListOfUsers() {
         List<User> someUsers = new ArrayList<User>();
 
         assertEquals(0, someUsers.size());
@@ -88,7 +90,7 @@ public class CollectionsExercisesTest {
     }
 
     @Test
-    public void createAndManipulateASetOfUsers(){
+    public void createAndManipulateASetOfUsers() {
         Set<User> someUsers = new HashSet<User>();
 
         assertEquals(0, someUsers.size());
@@ -104,7 +106,7 @@ public class CollectionsExercisesTest {
 
 
     @Test
-    public void createAndManipulateAMapOfUsers(){
+    public void createAndManipulateAMapOfUsers() {
         Map<String, User> someUsers = new HashMap<String, User>();
 
         assertEquals(0, someUsers.size());

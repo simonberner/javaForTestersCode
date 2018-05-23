@@ -1,6 +1,7 @@
 package com.javafortesters.chap017_datestimes.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class SimpleDateFormatTest {
 
     @Test
-    public void simpleDateFormatExample(){
+    public void simpleDateFormatExample() {
 
         System.out.println("|  Pattern    |        Output|");
         System.out.println("|----------   |     ----------|");
@@ -30,9 +31,9 @@ public class SimpleDateFormatTest {
         assertThat(sdf.format(date), is("01/01/1970"));
 
         System.out.println(String.format(
-                            "|\"%s\"  |  \"%s\"|",
-                            pattern,
-                            sdf.format(date)));
+                "|\"%s\"  |  \"%s\"|",
+                pattern,
+                sdf.format(date)));
 
         pattern = "MMM/dd/yyy";
         sdf.applyPattern(pattern);
@@ -93,16 +94,16 @@ public class SimpleDateFormatTest {
         System.out.println("|Element  |   Description  |  Output|");
         System.out.println("|-------  | -----------  |--------|");
 
-        for(String []details : formatElement){
+        for (String[] details : formatElement) {
 
             sdf.applyPattern(details[0]);
             System.out.println(
                     String.format("|\"%s\" |   %s |  \"%s\"|",
-                                    details[0],
-                                    details[1],
-                                    sdf.format(date)
-                                   )
-                               );
+                            details[0],
+                            details[1],
+                            sdf.format(date)
+                    )
+            );
         }
     }
 
@@ -149,7 +150,7 @@ public class SimpleDateFormatTest {
         System.out.println("|Element  |   Description  |  Output|");
         System.out.println("|-------  |   -----------  |  --------|");
 
-        for(String []details : formatElement){
+        for (String[] details : formatElement) {
 
             sdf.applyPattern(details[0]);
             System.out.println(

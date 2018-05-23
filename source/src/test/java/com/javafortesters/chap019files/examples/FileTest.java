@@ -1,7 +1,7 @@
 package com.javafortesters.chap019files.examples;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,8 +11,8 @@ import java.nio.file.Paths;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringEndsWith.endsWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FileTest {
 
@@ -42,17 +42,17 @@ public class FileTest {
         // you would probably just use File for this one
         File theFile = Paths.get(tempDir, "file.txt").toFile();
         assertThat(theFile.getAbsolutePath(),
-                    endsWith(File.separator + "file.txt"));
+                endsWith(File.separator + "file.txt"));
 
         theFile = Paths.get(tempDir, "temp1", "file.txt").toFile();
         assertThat(theFile.getAbsolutePath(),
                 endsWith(String.format("%s%s%1$s%s",
-                            File.separator, "temp1", "file.txt")));
+                        File.separator, "temp1", "file.txt")));
 
-        theFile = Paths.get(tempDir, "temp1","temp2", "temp3", "file.txt").toFile();
+        theFile = Paths.get(tempDir, "temp1", "temp2", "temp3", "file.txt").toFile();
         assertThat(theFile.getAbsolutePath(),
                 endsWith(String.format("%s%s%1$s%s%1$s%s%1$s%s",
-                            File.separator, "temp1", "temp2", "temp3", "file.txt")));
+                        File.separator, "temp1", "temp2", "temp3", "file.txt")));
     }
 
 
@@ -108,7 +108,7 @@ public class FileTest {
     }
 
     @Test
-    public void createLongerPathExample(){
+    public void createLongerPathExample() {
 
         String tempDirectory = System.getProperty("java.io.tmpdir");
         File aFile = new File(tempDirectory);
@@ -123,9 +123,8 @@ public class FileTest {
 
         Path aPath = Paths.get(tempDirectory, "1", "2", "3", "4");
         assertEquals(aFile.getAbsolutePath(),
-                     aPath.toFile().getAbsolutePath());
+                aPath.toFile().getAbsolutePath());
     }
-
 
 
     @Test
@@ -186,14 +185,14 @@ public class FileTest {
 
 
     @Test
-    public void mkdirsCreatesIntermediateDirs(){
+    public void mkdirsCreatesIntermediateDirs() {
 
         String tempDirectory = System.getProperty("java.io.tmpdir");
 
         File aDirectory = Paths.get(tempDirectory,
-                                    Long.toString(System.currentTimeMillis()),
-                                    Long.toString(System.currentTimeMillis()))
-                                .toFile();
+                Long.toString(System.currentTimeMillis()),
+                Long.toString(System.currentTimeMillis()))
+                .toFile();
 
         System.out.println(aDirectory.getAbsolutePath());
 
@@ -203,14 +202,14 @@ public class FileTest {
 
 
     @Test
-    public void mkdirsCreatesDirectories(){
+    public void mkdirsCreatesDirectories() {
 
         String tempDirectory = System.getProperty("java.io.tmpdir");
 
         File aFilePath = Paths.get(tempDirectory,
-                                    Long.toString(System.currentTimeMillis()),
-                                    "test.tmp")
-                                .toFile();
+                Long.toString(System.currentTimeMillis()),
+                "test.tmp")
+                .toFile();
 
         System.out.println(aFilePath.getAbsolutePath());
 
@@ -221,25 +220,21 @@ public class FileTest {
 
         // mkdir will create because it is just the temp/millis
         File aDirectoryPath = Paths.get(tempDirectory,
-                                        Long.toString(System.currentTimeMillis()))
-                                    .toFile();
+                Long.toString(System.currentTimeMillis()))
+                .toFile();
 
         assertThat(aDirectoryPath.mkdir(), is(true));
 
     }
 
     @Test
-    public void fileAndPathSeparator(){
-        assertTrue("Unrecognised OS file separator",
-                        File.separator.equals("\\") ||
-                        File.separator.equals("/"));
-        assertTrue("Unrecognised OS path separator",
-                        File.pathSeparator.equals(";") ||
-                        File.pathSeparator.equals(":"));
+    public void fileAndPathSeparator() {
+        assertTrue(File.separator.equals("\\") || File.separator.equals("/"), "Unrecognised OS file separator");
+        assertTrue(File.pathSeparator.equals(";") || File.pathSeparator.equals(":"), "Unrecognised OS path separator");
     }
 
     @Test
-    public void createATempFileAndDeleteOnExit(){
+    public void createATempFileAndDeleteOnExit() {
 
         try {
             File aTempFile = File.createTempFile("prefix", "suffix");
@@ -249,19 +244,19 @@ public class FileTest {
 
             String tempDirectory = System.getProperty("java.io.tmpdir");
 
-            assertThat( aTempFile.getName().startsWith("prefix"), is(true));
-            assertThat( aTempFile.getName().endsWith("suffix"), is(true));
+            assertThat(aTempFile.getName().startsWith("prefix"), is(true));
+            assertThat(aTempFile.getName().endsWith("suffix"), is(true));
 
             assertTrue(System.getProperty("java.io.tmpdir").
                     startsWith(aTempFile.getParent()));
 
             assertThat(aTempFile.getAbsolutePath().endsWith("suffix"),
-                       is(true));
+                    is(true));
             assertThat(aTempFile.getAbsolutePath().startsWith(
-                          System.getProperty("java.io.tmpdir")), is(true));
+                    System.getProperty("java.io.tmpdir")), is(true));
 
             assertThat(aTempFile.getCanonicalPath().endsWith("suffix"),
-                       is(true));
+                    is(true));
             assertThat(aTempFile.getCanonicalPath().contains(
                     System.getProperty("java.io.tmpdir")), is(true));
 
@@ -271,7 +266,7 @@ public class FileTest {
             String userDirectory = System.getProperty("user.dir");
 
             aTempFile = File.createTempFile("pre", null,
-                                new File(System.getProperty("user.dir")));
+                    new File(System.getProperty("user.dir")));
 
             System.out.println(aTempFile.getAbsolutePath());
             aTempFile.deleteOnExit();
@@ -287,12 +282,12 @@ public class FileTest {
     }
 
     @Test
-    public void listTempDirectory(){
+    public void listTempDirectory() {
         File tempDir = new File(System.getProperty("java.io.tmpdir"));
 
         String[] fileList = tempDir.list();
 
-        for(String fileInList : fileList){
+        for (String fileInList : fileList) {
             System.out.println(fileInList);
         }
     }

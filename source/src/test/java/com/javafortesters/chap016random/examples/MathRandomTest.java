@@ -1,20 +1,21 @@
 package com.javafortesters.chap016random.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MathRandomTest {
 
     @Test
-    public void canUseRandomMethodOnMath(){
+    public void canUseRandomMethodOnMath() {
 
         double rnd = Math.random();
 
         System.out.println(
-            String.format(
-                    "generated %f as random number", rnd));
+                String.format(
+                        "generated %f as random number", rnd));
 
         assertThat(rnd < 1.0d, is(true));
         assertThat(rnd >= 0.0d, is(true));

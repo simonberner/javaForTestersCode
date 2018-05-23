@@ -1,17 +1,19 @@
 package com.javafortesters.chap016random.examples;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JavaUtilRandomTest {
 
     @Test
-    public void generateRandomSyntaxExamples(){
+    public void generateRandomSyntaxExamples() {
         Random generate = new Random();
 
         // essentially code duplication to
@@ -27,12 +29,12 @@ public class JavaUtilRandomTest {
         byte[] bytes = new byte[generate.nextInt(100)];
         generate.nextBytes(bytes);  // fill bytes with random data
 
-        Assert.assertNotNull(generate);
+        assertNotNull(generate);
     }
 
 
     @Test
-    public void generateRandomIntRange(){
+    public void generateRandomIntRange() {
         Random generate = new Random();
         int rir;
 
@@ -46,48 +48,48 @@ public class JavaUtilRandomTest {
 
 
     @Test
-    public void generateRandomIntGivenRangeNot0(){
+    public void generateRandomIntGivenRangeNot0() {
         Random generate = new Random();
 
-            int minValue = 1;
-            int maxValue = 5;
-            int randomIntRange = generate.nextInt(
-                    maxValue - minValue + 1) + minValue;
+        int minValue = 1;
+        int maxValue = 5;
+        int randomIntRange = generate.nextInt(
+                maxValue - minValue + 1) + minValue;
 
-            assertThat(randomIntRange<=maxValue, is(true));
-            assertThat(randomIntRange >=minValue, is(true));
+        assertThat(randomIntRange <= maxValue, is(true));
+        assertThat(randomIntRange >= minValue, is(true));
     }
 
 
     @Test
-    public void canGenerateAgeUsingDeviation(){
+    public void canGenerateAgeUsingDeviation() {
 
         Random generate = new Random();
 
 
-        int age = (int)(generate.nextGaussian() * 5) + 35;
+        int age = (int) (generate.nextGaussian() * 5) + 35;
 
-        if(age<15)
-            age=15;
+        if (age < 15)
+            age = 15;
 
-        if(age>55)
-            age=55;
+        if (age > 55)
+            age = 55;
 
         // dangerous assertions as the test might fail,
         // hence the max and min above
-        Assert.assertTrue(age>14);
-        Assert.assertTrue(age<56);
+        assertTrue(age > 14);
+        assertTrue(age < 56);
     }
 
 
     @Test
-    public void canGenerateRandomNumbersWithSeedExample(){
-          Random generate = new Random(1234567L);
-          assertThat(generate.nextInt() , is(1042961893));
+    public void canGenerateRandomNumbersWithSeedExample() {
+        Random generate = new Random(1234567L);
+        assertThat(generate.nextInt(), is(1042961893));
     }
 
     @Test
-    public void canSeedWithCurrentDateTime(){
+    public void canSeedWithCurrentDateTime() {
         long currentSeed = System.currentTimeMillis();
         System.out.println("seed used: " + currentSeed);
         Random generate = new Random(currentSeed);
@@ -96,12 +98,12 @@ public class JavaUtilRandomTest {
         System.out.println(generate.nextInt());
 
         Random generateAgain = new Random(currentSeed);
-        assertThat(generateAgain.nextInt() , is(prevInt));
+        assertThat(generateAgain.nextInt(), is(prevInt));
     }
 
 
     @Test
-    public void generateARandomCharExample(){
+    public void generateARandomCharExample() {
 
         String validValues = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 
@@ -110,9 +112,9 @@ public class JavaUtilRandomTest {
         int rndIndex = random.nextInt(validValues.length());
         char rChar = validValues.charAt(rndIndex);
 
-        if(rChar!=' '){
-            Assert.assertTrue(rChar>='A');
-            Assert.assertTrue(rChar<='Z');
+        if (rChar != ' ') {
+            assertTrue(rChar >= 'A');
+            assertTrue(rChar <= 'Z');
         }
     }
 

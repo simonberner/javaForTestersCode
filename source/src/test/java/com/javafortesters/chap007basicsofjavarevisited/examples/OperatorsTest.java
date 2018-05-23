@@ -1,25 +1,26 @@
 package com.javafortesters.chap007basicsofjavarevisited.examples;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OperatorsTest {
 
     @Test
-    public void traditionalOperatorsExplored(){
-        assertEquals(4, 2+2);
+    public void traditionalOperatorsExplored() {
+        assertEquals(4, 2 + 2);
         assertEquals(5L, 10L - 5L);
         assertEquals(25.0F, 12.5F * 2F, 0);
         assertEquals(30.2D, 120.8D / 4D, 0);
         assertEquals("abcd", "ab" + "cd");
-        assertEquals(1, 9%2);
+        assertEquals(1, 9 % 2);
     }
 
     @Test
-    public void assignmentOperatorsExplored(){
+    public void assignmentOperatorsExplored() {
         String ab = "ab";
         assertEquals("ab", ab);
 
@@ -27,23 +28,23 @@ public class OperatorsTest {
         assertEquals(10, num);
 
         num += 2;
-        assertEquals("+= increments by", 12, num);
+        assertEquals(12, num, "+= increments by");
 
         num -= 4;
-        assertEquals("-= decrements by", 8, num);
+        assertEquals(8, num, "-= decrements by");
 
         num *= 2;
-        assertEquals("*= multiplies by", 16, num);
+        assertEquals(16, num, "*= multiplies by");
 
         num /= 4;
-        assertEquals("/= divides by", 4, num);
+        assertEquals(4, num, "/= divides by");
 
-        num %=3;
-        assertEquals("%= modulus of", 1, num);
+        num %= 3;
+        assertEquals(1, num, "%= modulus of");
     }
 
     @Test
-    public void incrementDecrementOperatorsExplored(){
+    public void incrementDecrementOperatorsExplored() {
         int num = 10;
         assertEquals(11, ++num);
         assertEquals(10, --num);
@@ -54,15 +55,15 @@ public class OperatorsTest {
     }
 
     @Test
-    public void booleanOperatorsExplored(){
-        assertTrue( 4 == 4 );
+    public void booleanOperatorsExplored() {
+        assertTrue(4 == 4);
         assertTrue(4 != 5);
         assertTrue(3 < 4);
         assertTrue(5 > 4);
-        assertTrue( 6 >= 6);
-        assertTrue( 7 >= 6);
-        assertTrue( 8 <= 8);
-        assertTrue( 8 <= 9);
+        assertTrue(6 >= 6);
+        assertTrue(7 >= 6);
+        assertTrue(8 <= 8);
+        assertTrue(8 <= 9);
 
         assertTrue(!false);
 
@@ -71,42 +72,42 @@ public class OperatorsTest {
     }
 
     @Test
-    public void conditionalOperatorsExplored(){
-        assertTrue( true && true);
-        assertTrue( true || false);
-        assertTrue( false || true);
-        assertFalse( false || false);
-        assertFalse( false && true);
+    public void conditionalOperatorsExplored() {
+        assertTrue(true && true);
+        assertTrue(true || false);
+        assertTrue(false || true);
+        assertFalse(false || false);
+        assertFalse(false && true);
     }
 
     @Test
-    public void ternaryOperatorsExplored(){
+    public void ternaryOperatorsExplored() {
         int x;
-        x = 4>3 ? 2 : 1;
+        x = 4 > 3 ? 2 : 1;
         assertEquals(2, x);
 
-        assertTrue( 5>=4 ? true : false );
+        assertTrue(5 >= 4 ? true : false);
     }
 
 
     @Test
-    public void bitwiseOperatorsExplored(){
+    public void bitwiseOperatorsExplored() {
         assertEquals(0b0001,
-                     0b1001 & 0b0101);
+                0b1001 & 0b0101);
 
         assertEquals(0b1101,
-                     0b1001 | 0b0101);
+                0b1001 | 0b0101);
 
         assertEquals(0b1100,
-                     0b1001 ^ 0b0101);
+                0b1001 ^ 0b0101);
 
         int x = 0b0001;
         assertEquals("11111111111111111111111111111110",
-                     Integer.toBinaryString(~x));
+                Integer.toBinaryString(~x));
     }
 
     @Test
-    public void bitwiseAssignmentOperatorsExplored(){
+    public void bitwiseAssignmentOperatorsExplored() {
         byte x = 0b0001;
 
         x &= 0b1011;
@@ -120,29 +121,29 @@ public class OperatorsTest {
     }
 
     @Test
-    public void bitwiseShiftOperatorsExplored(){
+    public void bitwiseShiftOperatorsExplored() {
         int x = 56;
 
-        assertEquals(x*2, x<<1);
-        assertEquals(x*4, x<<2);
-        assertEquals(x*8, x<<3);
+        assertEquals(x * 2, x << 1);
+        assertEquals(x * 4, x << 2);
+        assertEquals(x * 8, x << 3);
 
-        x <<=3;
-        assertEquals(56*8, x);
+        x <<= 3;
+        assertEquals(56 * 8, x);
 
         x = Integer.MAX_VALUE;
-        assertEquals(Integer.MAX_VALUE/2, x>>1);
-        assertEquals(Integer.MAX_VALUE/4, x>>2);
-        assertEquals(Integer.MAX_VALUE/8, x>>3);
+        assertEquals(Integer.MAX_VALUE / 2, x >> 1);
+        assertEquals(Integer.MAX_VALUE / 4, x >> 2);
+        assertEquals(Integer.MAX_VALUE / 8, x >> 3);
 
         x = Integer.MIN_VALUE; // -ve
-        assertEquals((Integer.MAX_VALUE/2)+1, x>>>1);
+        assertEquals((Integer.MAX_VALUE / 2) + 1, x >>> 1);
     }
 
     @Test
-    public void operatorPrecedence(){
-        assertEquals(8, 4+2*6/3 );
-        assertEquals(12, (((4+2)*6)/3) );
+    public void operatorPrecedence() {
+        assertEquals(8, 4 + 2 * 6 / 3);
+        assertEquals(12, (((4 + 2) * 6) / 3));
     }
 
 

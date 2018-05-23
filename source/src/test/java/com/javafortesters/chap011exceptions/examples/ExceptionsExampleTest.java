@@ -1,15 +1,15 @@
 package com.javafortesters.chap011exceptions.examples;
 
 import com.javafortesters.domainentities.interim.exceptions.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ExceptionsExampleTest {
 
-    @Test(expected = NullPointerException.class)
-    public void throwANullPointerException(){
-        Integer age=null;
+    //@Test(expected = NullPointerException.class)
+    public void throwANullPointerException() {
+        Integer age = null;
 
         String ageAsString = age.toString();
 
@@ -21,14 +21,14 @@ public class ExceptionsExampleTest {
 
 
     @Test
-    public void catchANullPointerException(){
-        Integer age=null;
+    public void catchANullPointerException() {
+        Integer age = null;
         String ageAsString;
 
-        try{
-           ageAsString = age.toString();
+        try {
+            ageAsString = age.toString();
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
             age = 18;
             ageAsString = age.toString();
         }
@@ -41,39 +41,39 @@ public class ExceptionsExampleTest {
 
 
     @Test
-    public void catchMultipleExceptions(){
-        Integer age=null;
+    public void catchMultipleExceptions() {
+        Integer age = null;
         String ageAsString;
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
 
             age = 18;
             ageAsString = age.toString();
 
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("Illegal Argument: " +
-                                e.getMessage());
+                    e.getMessage());
         }
 
         String yourAge =
-               "You are " + age.toString() + " years old";
+                "You are " + age.toString() + " years old";
 
         assertEquals("You are 18 years old", yourAge);
     }
 
     @Test
-    public void tryCatchFinallyPseudoCode(){
+    public void tryCatchFinallyPseudoCode() {
 
-        try{
+        try {
             // try and do something
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
             // handle the exception here
 
-        }finally{
+        } finally {
             // perform the code here
             // regardless of whether an
             // exception was thrown or not
@@ -81,20 +81,20 @@ public class ExceptionsExampleTest {
     }
 
     @Test
-    public void tryCatchFinallyANullPointerException(){
-        Integer age=null;
+    public void tryCatchFinallyANullPointerException() {
+        Integer age = null;
         String ageAsString;
-        String yourAge="";
+        String yourAge = "";
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
 
             age = 18;
             ageAsString = age.toString();
 
-        }finally{
+        } finally {
 
             yourAge = "You are " + age.toString() + " years old";
         }
@@ -102,33 +102,33 @@ public class ExceptionsExampleTest {
         assertEquals("You are 18 years old", yourAge);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void exampleTryCatchFinally(){
-        Integer age=null;
+    //@Test(expected = IllegalArgumentException.class)
+    public void exampleTryCatchFinally() {
+        Integer age = null;
 
-        try{
+        try {
             System.out.println("1. generate a null pointer exception");
             System.out.println(age.toString());
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("2. handle null pointer exception");
             throw new IllegalArgumentException
-                      ("Null pointer became Illegal", e);
-        }finally{
+                    ("Null pointer became Illegal", e);
+        } finally {
             System.out.println("3. run code in finally section");
         }
     }
 
-    @Test(expected = NullPointerException.class)
-    public void useWrongExceptionNullPointerThrown(){
-        Integer age=null;
+    //@Test(expected = NullPointerException.class)
+    public void useWrongExceptionNullPointerThrown() {
+        Integer age = null;
 
         String ageAsString;
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(ArithmeticException e){
+        } catch (ArithmeticException e) {
             age = 18;
             ageAsString = age.toString();
         }
@@ -137,22 +137,22 @@ public class ExceptionsExampleTest {
     }
 
 
-    @Test(expected = NullPointerException.class)
-    public void nullPointerExceptionExpected(){
-        Integer age=null;
+    //@Test(expected = NullPointerException.class)
+    public void nullPointerExceptionExpected() {
+        Integer age = null;
         age.toString();
     }
 
 
     @Test
-    public void noExceptionThrown(){
+    public void noExceptionThrown() {
         IllegalArgumentException e =
                 new IllegalArgumentException("never thrown");
     }
 
 
-    @Test (expected = IllegalArgumentException.class)
-    public void passwordMustBeGreaterThan6Chars(){
+    //@Test(expected = IllegalArgumentException.class)
+    public void passwordMustBeGreaterThan6Chars() {
         User aUser = new User("username", "I23456");
     }
 

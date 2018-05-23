@@ -1,6 +1,7 @@
 package com.javafortesters.chap017_datestimes.exercises;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
 
@@ -10,10 +11,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class DateTimeExercisesTest {
 
     @Test
-    public void nanoTime(){
+    public void nanoTime() {
         long startTime = System.nanoTime();
 
-        for(int x=0; x < 10; x++){
+        for (int x = 0; x < 10; x++) {
             System.out.println("Current Time " + System.nanoTime());
         }
 
@@ -22,17 +23,17 @@ public class DateTimeExercisesTest {
     }
 
     @Test
-    public void createAUniqueUserIDAllChars(){
+    public void createAUniqueUserIDAllChars() {
 
         String initialUserID = "user" + System.currentTimeMillis();
         System.out.println(initialUserID);
 
         String userID = initialUserID;
 
-        for(int x = 0; x< 10; x++){
-            String charReplacement = "" + ((char)('A'+x));
+        for (int x = 0; x < 10; x++) {
+            String charReplacement = "" + ((char) ('A' + x));
             String intToReplace = String.valueOf(x);
-            userID = userID.replace( intToReplace, charReplacement);
+            userID = userID.replace(intToReplace, charReplacement);
         }
 
         assertThat(userID.contains("0"), is(false));
@@ -52,16 +53,16 @@ public class DateTimeExercisesTest {
     }
 
     @Test
-    public void writeCalendarToStringToConsole(){
+    public void writeCalendarToStringToConsole() {
         Calendar cal = Calendar.getInstance();
         System.out.println(cal.toString());
     }
 
     @Test
-    public void useOtherCalendarConstants(){
+    public void useOtherCalendarConstants() {
         Calendar cal = Calendar.getInstance();
 
-        cal.set(2013, Calendar.DECEMBER, 15, 23,39, 54);
+        cal.set(2013, Calendar.DECEMBER, 15, 23, 39, 54);
         assertThat(cal.get(Calendar.MONTH), is(Calendar.DECEMBER));
         assertThat(cal.get(Calendar.YEAR), is(2013));
         assertThat(cal.get(Calendar.DAY_OF_MONTH), is(15));
@@ -73,7 +74,7 @@ public class DateTimeExercisesTest {
 
 
     @Test
-    public void experimentWithCalendarConstants(){
+    public void experimentWithCalendarConstants() {
         Calendar cal = Calendar.getInstance();
         cal.set(2013, Calendar.DECEMBER, 15, 23, 39, 54);
 
@@ -96,11 +97,11 @@ public class DateTimeExercisesTest {
     }
 
     @Test
-    public void incrementAndDecrementOtherFields(){
+    public void incrementAndDecrementOtherFields() {
         Calendar cal = Calendar.getInstance();
-        cal.set(2013, Calendar.DECEMBER, 15, 23,39, 54);
+        cal.set(2013, Calendar.DECEMBER, 15, 23, 39, 54);
 
-        cal.add(Calendar.YEAR,-2);
+        cal.add(Calendar.YEAR, -2);
         cal.add(Calendar.MONTH, -6);
         cal.add(Calendar.DAY_OF_MONTH, -12);
 
@@ -108,13 +109,13 @@ public class DateTimeExercisesTest {
         assertThat(cal.get(Calendar.MONTH), is(Calendar.JUNE));
         assertThat(cal.get(Calendar.DAY_OF_MONTH), is(3));
 
-        cal.set(2013, Calendar.DECEMBER, 15, 23,39, 54);
+        cal.set(2013, Calendar.DECEMBER, 15, 23, 39, 54);
 
         // bump it forward to 3rd June 2014,
         // then pull it back
         cal.add(Calendar.DAY_OF_MONTH, 19);
         cal.add(Calendar.MONTH, 5);
-        cal.add(Calendar.YEAR,-3);
+        cal.add(Calendar.YEAR, -3);
 
         assertThat(cal.get(Calendar.YEAR), is(2011));
         assertThat(cal.get(Calendar.MONTH), is(Calendar.JUNE));
@@ -122,19 +123,19 @@ public class DateTimeExercisesTest {
     }
 
     @Test
-    public void rollCalendar(){
+    public void rollCalendar() {
         Calendar cal = Calendar.getInstance();
-        cal.set(2013, Calendar.DECEMBER, 15, 23,39, 54);
+        cal.set(2013, Calendar.DECEMBER, 15, 23, 39, 54);
 
-        cal.roll(Calendar.DAY_OF_MONTH,17);
+        cal.roll(Calendar.DAY_OF_MONTH, 17);
 
         assertThat(cal.get(Calendar.YEAR), is(2013));
         assertThat(cal.get(Calendar.MONTH), is(Calendar.DECEMBER));
         assertThat(cal.get(Calendar.DAY_OF_MONTH), is(1));
 
-        cal.set(2013, Calendar.DECEMBER, 15, 23,39, 54);
+        cal.set(2013, Calendar.DECEMBER, 15, 23, 39, 54);
 
-        cal.add(Calendar.DAY_OF_MONTH,17);
+        cal.add(Calendar.DAY_OF_MONTH, 17);
         assertThat(cal.get(Calendar.YEAR), is(2014));
         assertThat(cal.get(Calendar.MONTH), is(Calendar.JANUARY));
         assertThat(cal.get(Calendar.DAY_OF_MONTH), is(1));

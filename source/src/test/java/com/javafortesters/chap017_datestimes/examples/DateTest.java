@@ -1,17 +1,18 @@
 package com.javafortesters.chap017_datestimes.examples;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DateTest {
 
     @Test
-    public void dateExploration(){
+    public void dateExploration() {
 
         Date date = new Date();
 
@@ -20,7 +21,7 @@ public class DateTest {
         System.out.println(date.getTime());
         System.out.println(System.currentTimeMillis());
 
-        Assert.assertEquals(equivDate1, equivDate2);
+        assertEquals(equivDate1, equivDate2);
 
 
         System.out.println(new Date().getTime());
@@ -30,7 +31,7 @@ public class DateTest {
 
         long oneWeekFromNowTime = date.getTime();
         oneWeekFromNowTime = oneWeekFromNowTime +
-                             (1000 * 60 * 60 * 24 * 7);
+                (1000 * 60 * 60 * 24 * 7);
         Date oneWeekFromNow = new Date(oneWeekFromNowTime);
         System.out.println(oneWeekFromNow.toString());
 

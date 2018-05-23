@@ -1,14 +1,16 @@
 package com.javafortesters.chap014junit.examples;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MyFirstAssertDotTest {
 
     @Test
-    public void canAddTwoPlusTwo(){
+    public void canAddTwoPlusTwo() {
 
-        int answer = 2+2;
-        Assert.assertEquals("2+2=4", 4, answer);
+        int answer = 2 + 2;
+        assertEquals(4, answer, "2+2=4");
     }
 }

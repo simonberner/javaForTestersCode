@@ -2,17 +2,18 @@ package com.javafortesters.chap021collectionsrevisited.exercises;
 
 import com.javafortesters.domainentities.User;
 import com.javafortesters.domainentities.UserComparatorDisallowDupes;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SortedSetExercisesTest {
 
     @Test
-    public void sortedSetWithComparatorForUser(){
+    public void sortedSetWithComparatorForUser() {
         User bob = new User("Bob", "pA55Word");   // 11
         User dupebob = new User("Bob", "hello");
         User rich = new User("Richie", "RichieRichieRich"); // 22
@@ -20,7 +21,7 @@ public class SortedSetExercisesTest {
         User mrBeer = new User("Stafford", "sys"); // 11
 
         SortedSet<User> userSortedList =
-                 new TreeSet<User>(new UserComparatorDisallowDupes());
+                new TreeSet<User>(new UserComparatorDisallowDupes());
 
         userSortedList.add(bob);
         userSortedList.add(dupebob);

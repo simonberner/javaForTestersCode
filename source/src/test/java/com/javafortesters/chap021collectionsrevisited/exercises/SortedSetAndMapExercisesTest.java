@@ -1,19 +1,21 @@
 package com.javafortesters.chap021collectionsrevisited.exercises;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SortedSetAndMapExercisesTest {
 
     @Test
-    public void exerciseCanGetAllKeysAsSortedSet(){
-        Map<String,String> map = new HashMap<>();
+    public void exerciseCanGetAllKeysAsSortedSet() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key4", "value4");
         map.put("key2", "value2");
@@ -23,9 +25,9 @@ public class SortedSetAndMapExercisesTest {
         SortedSet<String> keys = new TreeSet<String>(map.keySet());
 
         int valSuffix = 1;
-        for(String key : keys){
+        for (String key : keys) {
             assertEquals("value" + valSuffix,
-                         map.get(key));
+                    map.get(key));
 
             valSuffix += 1;
         }

@@ -1,19 +1,19 @@
 package com.javafortesters.chap010collections.examples;
 
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class CollectionInterfacesTest {
 
 
     @Test
-    public void collectionDeclarationAndInitializationExplored(){
+    public void collectionDeclarationAndInitializationExplored() {
 
         Collection<String> cola = new ArrayList<String>();
         Collection<String> colb = new <String>ArrayList();
@@ -22,7 +22,7 @@ public class CollectionInterfacesTest {
     }
 
     @Test
-    public void hashSetDoesNotAllowDupes(){
+    public void hashSetDoesNotAllowDupes() {
 
         Collection workdays = new HashSet();
 
@@ -36,7 +36,7 @@ public class CollectionInterfacesTest {
     }
 
     @Test
-    public void arrayListDoesAllowDupes(){
+    public void arrayListDoesAllowDupes() {
 
         Collection workdays = new ArrayList();
 
@@ -50,14 +50,14 @@ public class CollectionInterfacesTest {
     }
 
     @Test
-    public void instantiateCollection17(){
+    public void instantiateCollection17() {
 
         Collection<String> weekendDays = new ArrayList<>();
 
     }
 
     @Test
-    public void instantiateCollectionInterface(){
+    public void instantiateCollectionInterface() {
 
         Collection workdays;
         workdays = new ArrayList();
@@ -80,7 +80,7 @@ public class CollectionInterfacesTest {
         assertEquals(weekendDays.size() + workdays.size(), daysOfWeek.size());
     }
 
-    public void setupWorkDays(Collection workdays){
+    public void setupWorkDays(Collection workdays) {
         // setup the workdays
         workdays.add("Monday");
         workdays.add("Tuesday");
@@ -91,20 +91,20 @@ public class CollectionInterfacesTest {
         assertEquals(5, workdays.size());
     }
 
-    public void addAllWorkdaystoDaysOfWeek(Collection workdays, Collection daysOfWeek){
+    public void addAllWorkdaystoDaysOfWeek(Collection workdays, Collection daysOfWeek) {
         // add all the workdays days into daysOfWeek
         assertEquals(0, daysOfWeek.size());
-        assertFalse( daysOfWeek.containsAll(workdays) );
+        assertFalse(daysOfWeek.containsAll(workdays));
 
         daysOfWeek.addAll(workdays);
 
-        assertEquals( workdays.size(), daysOfWeek.size() );
-        assertTrue( daysOfWeek.containsAll(workdays ));
+        assertEquals(workdays.size(), daysOfWeek.size());
+        assertTrue(daysOfWeek.containsAll(workdays));
     }
 
 
     @Test
-    public void canRemoveElementAndContainsReturnsFalse(){
+    public void canRemoveElementAndContainsReturnsFalse() {
 
         Collection<String> weekendDays = new <String>ArrayList();
 
@@ -113,8 +113,7 @@ public class CollectionInterfacesTest {
         weekendDays.add("Funday");
 
         assertEquals(2, weekendDays.size());
-        assertTrue("Bug, Funday exists but it should really be Sunday",
-                weekendDays.contains("Funday"));
+        assertTrue(weekendDays.contains("Funday"), "Bug, Funday exists but it should really be Sunday");
 
         // fix the bug and replace Funday with Sunday
         weekendDays.remove("Funday");
@@ -125,8 +124,7 @@ public class CollectionInterfacesTest {
         weekendDays.add("Sunday");
 
         assertEquals(2, weekendDays.size());
-        assertTrue("Bug Fixed, Sunday is in the collection now",
-                weekendDays.contains("Sunday"));
+        assertTrue(weekendDays.contains("Sunday"), "Bug Fixed, Sunday is in the collection now");
     }
 
 
@@ -136,7 +134,7 @@ public class CollectionInterfacesTest {
     }
 
     @Test
-    public void canOutputAllDaysOfWeek(){
+    public void canOutputAllDaysOfWeek() {
 
         Collection workdays;
         workdays = new ArrayList();
@@ -152,20 +150,20 @@ public class CollectionInterfacesTest {
         daysOfWeek.addAll(weekendDays);
 
         // iterate over the String collection because of iterator()
-        for(String dayOfWeek : daysOfWeek){
+        for (String dayOfWeek : daysOfWeek) {
             System.out.println(dayOfWeek);
         }
 
         // iterate over the Object collection
         // demonstrates casting
-        for(Object workday : workdays){
-            String outputDay = (String)workday;
+        for (Object workday : workdays) {
+            String outputDay = (String) workday;
             System.out.println(outputDay);
         }
     }
 
     @Test
-    public void clearCanEmptyACollection(){
+    public void clearCanEmptyACollection() {
 
         Collection<String> workdays = new <String>ArrayList();
         Collection<String> weekendDays = new <String>ArrayList();
@@ -187,7 +185,7 @@ public class CollectionInterfacesTest {
     }
 
     @Test
-    public void canRemoveAllOneCollectionFromAnother(){
+    public void canRemoveAllOneCollectionFromAnother() {
 
         Collection<String> workdays = new <String>ArrayList();
         Collection<String> weekendDays = new <String>ArrayList();
@@ -212,7 +210,7 @@ public class CollectionInterfacesTest {
     }
 
     @Test
-    public void retainAllRemoveAllButACollection(){
+    public void retainAllRemoveAllButACollection() {
 
         Collection<String> workdays = new <String>ArrayList();
         Collection<String> weekendDays = new <String>ArrayList();
@@ -230,13 +228,13 @@ public class CollectionInterfacesTest {
 
         daysOfWeek.retainAll(weekendDays);
 
-        assertEquals("only weekend days now", 2, daysOfWeek.size());
+        assertEquals(2, daysOfWeek.size(), "only weekend days now");
         assertTrue(daysOfWeek.containsAll(weekendDays));
         assertFalse(daysOfWeek.containsAll(workdays));
     }
 
     @Test
-    public void collectionConvertToArray(){
+    public void collectionConvertToArray() {
 
         Collection<String> workdays = new <String>ArrayList();
         Collection<String> weekendDays = new <String>ArrayList();
@@ -255,14 +253,14 @@ public class CollectionInterfacesTest {
         assertEquals(7, daysOfWeekArray.length);
 
         assertEquals("Monday".length(),
-                    ((String)daysOfWeekArray[0]).length());
+                ((String) daysOfWeekArray[0]).length());
 
 
         // convert to array with correct type
         String[] anotherArray = new String[daysOfWeek.size()];
         daysOfWeek.toArray(anotherArray);
         assertEquals("Monday".length(),
-                    anotherArray[0].length());
+                anotherArray[0].length());
 
 
     }

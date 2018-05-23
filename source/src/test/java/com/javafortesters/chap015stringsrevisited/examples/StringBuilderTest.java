@@ -1,14 +1,15 @@
 package com.javafortesters.chap015stringsrevisited.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StringBuilderTest {
 
     @Test
-    public void canConstructStringBuilder(){
+    public void canConstructStringBuilder() {
 
         StringBuilder builder = new StringBuilder();
         assertThat(builder.capacity(), is(16));
@@ -25,16 +26,16 @@ public class StringBuilderTest {
     }
 
     @Test
-    public void quickStringBuilderDemo(){
+    public void quickStringBuilderDemo() {
         StringBuilder builder = new StringBuilder();
         builder.append("Hello There").
-                replace(7,11,"World").
-                delete(5,7);
+                replace(7, 11, "World").
+                delete(5, 7);
         assertThat(builder.toString(), is("HelloWorld"));
     }
 
     @Test
-    public void appendToStringBuilder(){
+    public void appendToStringBuilder() {
         StringBuilder builder = new StringBuilder();
         builder.append("> ");
         builder.append(1);
@@ -47,22 +48,22 @@ public class StringBuilderTest {
     }
 
 
-    @Test(expected=StringIndexOutOfBoundsException.class)
-    public void insertOutsideIntoStringBuilderWhichIsEmpty(){
+    //@Test(expected = StringIndexOutOfBoundsException.class)
+    public void insertOutsideIntoStringBuilderWhichIsEmpty() {
         StringBuilder builder = new StringBuilder();
-        builder.insert(5,"Hello");
+        builder.insert(5, "Hello");
     }
 
     @Test
-    public void insertIntoStringBuilder(){
+    public void insertIntoStringBuilder() {
         StringBuilder builder = new StringBuilder("123890");
-        builder.insert(3,"4567");
+        builder.insert(3, "4567");
         assertThat(builder.toString(), is("1234567890"));
     }
 
 
     @Test
-    public void insertCharArrayIntoStringBuilder(){
+    public void insertCharArrayIntoStringBuilder() {
         char[] ca = {'.', 'a', 'b', 'c', 'd', 'e', 'f'};
         StringBuilder builder = new StringBuilder("abgh");
         // at position 2 in the string
@@ -73,28 +74,28 @@ public class StringBuilderTest {
         assertThat(builder.toString(), is("abcdefgh"));
     }
 
-    @Test(expected=StringIndexOutOfBoundsException.class)
-    public void insertOutsideStringBuilder(){
+    //@Test(expected = StringIndexOutOfBoundsException.class)
+    public void insertOutsideStringBuilder() {
         StringBuilder builder = new StringBuilder("a");
-        builder.insert(2,"Hello");
+        builder.insert(2, "Hello");
     }
 
     @Test
-    public void deleteFromStringBuilder(){
+    public void deleteFromStringBuilder() {
         StringBuilder builder = new StringBuilder("abcdefg");
-        builder.delete(2,4);
+        builder.delete(2, 4);
         assertThat(builder.toString(), is("abefg"));
     }
 
     @Test
-    public void deleteSingleCharFromStringBuilder(){
+    public void deleteSingleCharFromStringBuilder() {
         StringBuilder builder = new StringBuilder("abcdefg");
         builder.deleteCharAt(2);
         assertThat(builder.toString(), is("abdefg"));
     }
 
     @Test
-    public void ensureCapacityForStringBuilder(){
+    public void ensureCapacityForStringBuilder() {
         StringBuilder builder = new StringBuilder("abcdefg");
         builder.ensureCapacity(600);
         assertThat(builder.capacity(), is(600));
@@ -102,7 +103,7 @@ public class StringBuilderTest {
     }
 
     @Test
-    public void capacityManagementWithTrimToSize(){
+    public void capacityManagementWithTrimToSize() {
         StringBuilder builder = new StringBuilder(600);
         assertThat(builder.capacity(), is(600));
 
@@ -113,29 +114,29 @@ public class StringBuilderTest {
     }
 
     @Test
-    public void replaceStringBuilderSubStrings(){
+    public void replaceStringBuilderSubStrings() {
         StringBuilder builder = new StringBuilder("abcdefgh");
-        builder.replace(0,4,"12345678");
+        builder.replace(0, 4, "12345678");
         assertThat(builder.toString(), is("12345678efgh"));
     }
 
     @Test
-    public void replaceStringBuilderChar(){
+    public void replaceStringBuilderChar() {
         StringBuilder builder = new StringBuilder("012345678");
-        builder.setCharAt(5,'f');
+        builder.setCharAt(5, 'f');
         assertThat(builder.toString(), is("01234f678"));
     }
 
     @Test
-    public void reverseStringBuilder(){
+    public void reverseStringBuilder() {
         StringBuilder builder = new StringBuilder("0123456789");
         assertThat(builder.reverse().toString(), is("9876543210"));
     }
 
     @Test
-    public void substringStringBuilder(){
+    public void substringStringBuilder() {
         StringBuilder builder = new StringBuilder("0123456789");
-        assertThat(builder.substring(3,7), is("3456"));
+        assertThat(builder.substring(3, 7), is("3456"));
         assertThat(builder.substring(3), is("3456789"));
     }
 }

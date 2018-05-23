@@ -1,17 +1,17 @@
 package com.javafortesters.chap021collectionsrevisited.exercises;
 
 import com.javafortesters.domainentities.interim.comparator.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SortedSetExercisesComparableUserClassTest {
 
     @Test
-    public void sortedSetWithComparableUser(){
+    public void sortedSetWithComparableUser() {
         User bob = new User("Bob", "pA55Word");   // 11
         User dupebob = new User("Bob", "hello");
         User rich = new User("Richie", "RichieRichieRich"); // 22

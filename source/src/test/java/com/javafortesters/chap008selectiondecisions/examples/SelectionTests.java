@@ -1,14 +1,15 @@
 package com.javafortesters.chap008selectiondecisions.examples;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class SelectionTests {
 
     @Test
-    public void moreTernary(){
+    public void moreTernary() {
         String url = "www.eviltester.com";
 
         url = url.startsWith("http") ? url : addHttp(url);
@@ -23,9 +24,9 @@ public class SelectionTests {
 
 
     @Test
-    public void ifAddHttp(){
+    public void ifAddHttp() {
         String url = "www.seleniumsimplified.com";
-        if(!url.startsWith("http")){
+        if (!url.startsWith("http")) {
             url = addHttp(url);
         }
         assertTrue(url.startsWith("http://"));
@@ -34,11 +35,11 @@ public class SelectionTests {
 
 
     @Test
-    public void ifElseAddHttp(){
+    public void ifElseAddHttp() {
         String url = "www.seleniumsimplified.com";
-        if(url.startsWith("http")){
+        if (url.startsWith("http")) {
             // do nothing the url is fine
-        }else{
+        } else {
             url = addHttp(url);
         }
         assertTrue(url.startsWith("http://"));
@@ -46,12 +47,12 @@ public class SelectionTests {
     }
 
     @Test
-    public void ifElseNestedAddHttp(){
+    public void ifElseNestedAddHttp() {
         String url = "seleniumsimplified.com";
-        if(url.startsWith("http")){
+        if (url.startsWith("http")) {
             // do nothing the url is fine
-        }else{
-            if(!url.startsWith("www")){
+        } else {
+            if (!url.startsWith("www")) {
                 url = "www." + url;
             }
             url = addHttp(url);
@@ -62,15 +63,12 @@ public class SelectionTests {
 
 
     @Test
-    public void ifElseNestedAddHttpReformatted(){
+    public void ifElseNestedAddHttpReformatted() {
         String url = "seleniumsimplified.com";
-        if(url.startsWith("http"))
-        {
+        if (url.startsWith("http")) {
             // do nothing the url is fine
-        }else
-        {
-            if(!url.startsWith("www"))
-            {
+        } else {
+            if (!url.startsWith("www")) {
                 url = "www." + url;
             }
             url = addHttp(url);
@@ -80,7 +78,7 @@ public class SelectionTests {
     }
 
     @Test
-    public void switchExample(){
+    public void switchExample() {
         assertEquals("M", likelyGenderIs("sir"));
         assertEquals("M", likelyGenderIs("mr"));
         assertEquals("M", likelyGenderIs("master"));
@@ -91,10 +89,10 @@ public class SelectionTests {
         assertEquals("F", likelyGenderIs("madam"));
     }
 
-    public String likelyGenderIs(String title){
+    public String likelyGenderIs(String title) {
         String likelyGender;
 
-        switch(title.toLowerCase()){
+        switch (title.toLowerCase()) {
             case "sir":
                 likelyGender = "M";
                 break;
@@ -113,7 +111,7 @@ public class SelectionTests {
 
 
     @Test
-    public void switchFallThroughExample(){
+    public void switchFallThroughExample() {
         assertEquals("M", likelyGenderFallThrough("sir"));
         assertEquals("M", likelyGenderFallThrough("mr"));
         assertEquals("M", likelyGenderFallThrough("master"));
@@ -124,10 +122,10 @@ public class SelectionTests {
         assertEquals("F", likelyGenderFallThrough("madam"));
     }
 
-    public String likelyGenderFallThrough(String title){
+    public String likelyGenderFallThrough(String title) {
         String likelyGender;
 
-        switch(title.toLowerCase()){
+        switch (title.toLowerCase()) {
             case "sir":
             case "mr":
             case "master":

@@ -1,14 +1,15 @@
 package com.javafortesters.chap011exceptions.exercises;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IntroducingExceptionsExercisesTest {
 
     @Test
-    public void noLongerThrowANullPointerException(){
-        Integer age=18;
+    public void noLongerThrowANullPointerException() {
+        Integer age = 18;
 
         String ageAsString = age.toString();
 
@@ -18,16 +19,16 @@ public class IntroducingExceptionsExercisesTest {
         assertEquals("You are 18 years old", yourAge);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void catchADifferentException(){
+    //@Test(expected = NullPointerException.class)
+    public void catchADifferentException() {
 
-        Integer age=null;
+        Integer age = null;
         String ageAsString;
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(ArithmeticException e){
+        } catch (ArithmeticException e) {
             age = 18;
             ageAsString = age.toString();
         }
@@ -38,16 +39,16 @@ public class IntroducingExceptionsExercisesTest {
         assertEquals("You are 18 years old", yourAge);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testNotFixedStillThrowsNullPointer(){
+    //@Test(expected = NullPointerException.class)
+    public void testNotFixedStillThrowsNullPointer() {
 
-        Integer age=null;
+        Integer age = null;
         String ageAsString;
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(ArithmeticException e){
+        } catch (ArithmeticException e) {
             //age = 18;
             ageAsString = age.toString();
         }
@@ -81,14 +82,14 @@ public class IntroducingExceptionsExercisesTest {
     */
 
     @Test
-    public void useExceptionAsAnObject(){
-        Integer age=null;
+    public void useExceptionAsAnObject() {
+        Integer age = null;
         String ageAsString;
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("getMessage - " +
                     e.getMessage());
             System.out.println("getStacktrace - " +
@@ -99,14 +100,14 @@ public class IntroducingExceptionsExercisesTest {
     }
 
     @Test
-    public void useExceptionAsAnObjectExtendedForGetStackTrace(){
-        Integer age=null;
+    public void useExceptionAsAnObjectExtendedForGetStackTrace() {
+        Integer age = null;
         String ageAsString;
 
-        try{
+        try {
             ageAsString = age.toString();
 
-        }catch(NullPointerException e){
+        } catch (NullPointerException e) {
 
             System.out.println("getMessage - " +
                     e.getMessage());
@@ -116,15 +117,15 @@ public class IntroducingExceptionsExercisesTest {
             e.printStackTrace();
 
             System.out.println("Stack Trace Length - " +
-                                e.getStackTrace().length);
+                    e.getStackTrace().length);
             System.out.println("Stack Trace [0] classname - " +
-                                e.getStackTrace()[0].getClassName());
+                    e.getStackTrace()[0].getClassName());
             System.out.println("Stack Trace [0] filename - " +
-                                e.getStackTrace()[0].getFileName());
+                    e.getStackTrace()[0].getFileName());
             System.out.println("Stack Trace [0] linenumber - " +
-                                e.getStackTrace()[0].getLineNumber());
+                    e.getStackTrace()[0].getLineNumber());
             System.out.println("Stack Trace [0] methodname - " +
-                                e.getStackTrace()[0].getMethodName());
+                    e.getStackTrace()[0].getMethodName());
         }
     }
 }

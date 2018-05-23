@@ -1,7 +1,7 @@
 package com.javafortesters.chap019files.exercises;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 
@@ -37,7 +37,7 @@ public class FilesCopyMoveTest {
         assertThat(toThis.exists(), is(false));
 
         Files.move(moveThis.toPath(), toThis.toPath(),
-                    REPLACE_EXISTING, ATOMIC_MOVE);
+                REPLACE_EXISTING, ATOMIC_MOVE);
 
         assertThat(toThis.exists(), is(true));
         assertThat(moveThis.exists(), is(false));
@@ -46,9 +46,9 @@ public class FilesCopyMoveTest {
     private File writeTheTestDataFile() throws IOException {
         File outputFile = File.createTempFile("forReading", null);
         PrintWriter print = new PrintWriter(
-                                new BufferedWriter(
-                                          new FileWriter(outputFile)));
-        for(int lineNumber = 1; lineNumber < 6; lineNumber++){
+                new BufferedWriter(
+                        new FileWriter(outputFile)));
+        for (int lineNumber = 1; lineNumber < 6; lineNumber++) {
             print.println("line " + lineNumber);
         }
         print.close();

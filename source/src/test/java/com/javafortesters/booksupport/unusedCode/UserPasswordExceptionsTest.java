@@ -2,7 +2,7 @@ package com.javafortesters.booksupport.unusedCode;
 
 
 import com.javafortesters.domainentities.interim.exceptions.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class UserPasswordExceptionsTest {
 
@@ -18,8 +18,9 @@ public class UserPasswordExceptionsTest {
     }
     */
 
-    @Test (expected = IllegalArgumentException.class)
-    public void passwordMustBeGreaterThan6Chars(){
+    // @Test (expected = IllegalArgumentException.class)
+    // see http://www.baeldung.com/junit-5-migration
+    public void passwordMustBeGreaterThan6Chars() {
         User aUser = new User("username", "I23456");
     }
 
@@ -32,7 +33,7 @@ public class UserPasswordExceptionsTest {
     */
 
     @Test
-    public void passwordMatches(){
+    public void passwordMatches() {
 
         User aUser = new User("username", "Password2");
         aUser = new User("username", "Pas5word");

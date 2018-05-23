@@ -1,6 +1,7 @@
 package com.javafortesters.chap018properties.examples;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.Properties;
@@ -12,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class PropertiesTest {
 
     @Test
-    public void canCreateGetAndSetProperties(){
+    public void canCreateGetAndSetProperties() {
 
         Properties properties = new Properties();
 
@@ -20,33 +21,33 @@ public class PropertiesTest {
 
         properties.setProperty("browser", "firefox");
         properties.setProperty("port", "80");
-        assertThat( properties.getProperty("browser"),
-                    is("firefox"));
-        assertThat( properties.getProperty("port"),
-                    is("80"));
+        assertThat(properties.getProperty("browser"),
+                is("firefox"));
+        assertThat(properties.getProperty("port"),
+                is("80"));
 
-        assertThat( properties.getProperty("missing"),
-                    is(nullValue()));
+        assertThat(properties.getProperty("missing"),
+                is(nullValue()));
 
-        assertThat( properties.getProperty("missing", "default"),
-                    is("default"));
+        assertThat(properties.getProperty("missing", "default"),
+                is("default"));
 
-        assertThat( properties.containsKey("browser"), is(true));
+        assertThat(properties.containsKey("browser"), is(true));
     }
 
 
     @Test
-    public void canDisplayTheProperties(){
+    public void canDisplayTheProperties() {
 
         Properties properties = new Properties();
         properties.setProperty("browser", "firefox");
         properties.setProperty("port", "80");
 
-        assertThat(properties.stringPropertyNames().size(), is (2));
+        assertThat(properties.stringPropertyNames().size(), is(2));
 
-        for( String key : properties.stringPropertyNames()){
+        for (String key : properties.stringPropertyNames()) {
             System.out.println("Key: " + key + " " +
-                               "Value: " + properties.getProperty(key));
+                    "Value: " + properties.getProperty(key));
         }
 
         properties.list(System.out);
@@ -54,26 +55,26 @@ public class PropertiesTest {
 
 
     @Test
-    public void canAccessSystemProperties(){
+    public void canAccessSystemProperties() {
 
         String workingDirectory = System.getProperty("user.dir");
 
         String resourceFilePath = workingDirectory +
-                                  "/src/test/resources/" +
-                                  "property_files/" +
-                                  "static_example.properties";
+                "/src/test/resources/" +
+                "property_files/" +
+                "static_example.properties";
 
         Properties sys = System.getProperties();
         sys.list(System.out);
     }
 
     @Test
-    public void exampleSetWebdriverChromeIfNotSet(){
-        if(!System.getProperties().containsKey("webdriver.chrome.driver")){
+    public void exampleSetWebdriverChromeIfNotSet() {
+        if (!System.getProperties().containsKey("webdriver.chrome.driver")) {
             String currentDir = System.getProperty("user.dir");
             String chromeDriverLocation
-                        = currentDir +
-                        "/../tools/chromedriver/chromedriver.exe";
+                    = currentDir +
+                    "/../tools/chromedriver/chromedriver.exe";
             System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
         }
     }
@@ -84,26 +85,26 @@ public class PropertiesTest {
 
         String tempDirectory = System.getProperty("java.io.tmpdir");
         String tempResourceFilePath =
-                    new File(tempDirectory,
+                new File(tempDirectory,
                         "tempFileForPropertiesStoreTest.properties")
-                            .getAbsolutePath();
+                        .getAbsolutePath();
 
         Properties saved = new Properties();
         saved.setProperty("prop1", "Hello");
         saved.setProperty("prop2", "World");
 
         FileOutputStream outputFile =
-                            new FileOutputStream(tempResourceFilePath);
+                new FileOutputStream(tempResourceFilePath);
         saved.store(outputFile, "Hello There World");
         outputFile.close();
 
         FileReader propertyFileReader =
-                            new FileReader(tempResourceFilePath);
+                new FileReader(tempResourceFilePath);
         Properties loaded = new Properties();
 
-        try{
+        try {
             loaded.load(propertyFileReader);
-        }finally{
+        } finally {
             propertyFileReader.close();
         }
 

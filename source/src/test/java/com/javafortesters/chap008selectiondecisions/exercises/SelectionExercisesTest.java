@@ -1,13 +1,16 @@
 package com.javafortesters.chap008selectiondecisions.exercises;
 
-import org.junit.Test;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SelectionExercisesTest {
 
     @Test
-    public void catOrCats(){
+    public void catOrCats() {
 
         int numberOfCats = 1;
 
@@ -28,7 +31,7 @@ public class SelectionExercisesTest {
 
 
     @Test
-    public void catOrCatsAsMethod(){
+    public void catOrCatsAsMethod() {
 
         assertEquals("1 == cat", "cat", catOrCats(1));
 
@@ -37,87 +40,87 @@ public class SelectionExercisesTest {
         assertEquals("2 == cats", "cats", catOrCats(2));
     }
 
-    private String catOrCats(int numberOfCats){
+    private String catOrCats(int numberOfCats) {
         return (numberOfCats == 1) ? "cat" : "cats";
     }
 
     @Test
-    public void truthyIf(){
-        boolean truthy=true;
+    public void truthyIf() {
+        boolean truthy = true;
 
-        if(truthy)
+        if (truthy)
             assertTrue(truthy);
 
-        if(truthy){
+        if (truthy) {
             assertTrue(truthy);
             assertFalse(!truthy);
         }
     }
 
     @Test
-    public void truthyIfElse(){
-        boolean truthy=true;
+    public void truthyIfElse() {
+        boolean truthy = true;
 
-        if(truthy)
+        if (truthy)
             assertTrue(truthy);
         else
             assertFalse(truthy);
     }
 
     @Test
-    public void truthyIfElseBraces(){
-        boolean truthy=true;
+    public void truthyIfElseBraces() {
+        boolean truthy = true;
 
-        if(truthy){
+        if (truthy) {
             assertTrue(truthy);
             assertFalse(!truthy);
-        }else{
+        } else {
             assertFalse(truthy);
         }
     }
 
     @Test
-    public void truthyIfElseOnlyOneSetOfBraces(){
-        boolean truthy=true;
+    public void truthyIfElseOnlyOneSetOfBraces() {
+        boolean truthy = true;
 
-        if(truthy){
+        if (truthy) {
             assertTrue(truthy);
             assertFalse(!truthy);
-        }else
+        } else
             assertFalse(truthy);
     }
 
     @Test
-    public void nestedIfElseHorror(){
+    public void nestedIfElseHorror() {
         horrorOfNestedIfElse(true, true);
         horrorOfNestedIfElse(true, false);
         horrorOfNestedIfElse(false, true);
         horrorOfNestedIfElse(false, false);
     }
 
-    public void horrorOfNestedIfElse(boolean truthy, boolean falsey){
+    public void horrorOfNestedIfElse(boolean truthy, boolean falsey) {
 
-        if(truthy){
-            if(!falsey){
-                if(truthy && !falsey){
-                    if(falsey || truthy){
+        if (truthy) {
+            if (!falsey) {
+                if (truthy && !falsey) {
+                    if (falsey || truthy) {
                         System.out.println("T | F");
                         assertTrue(truthy);
                         assertFalse(falsey);
                     }
                 }
-            }else{
+            } else {
                 System.out.println("T | T");
                 assertTrue(truthy);
                 assertTrue(falsey);
             }
-        }else{
-            if(!truthy){
-                if(falsey){
+        } else {
+            if (!truthy) {
+                if (falsey) {
                     System.out.println("F | T");
                     assertTrue(falsey);
                     assertFalse(truthy);
-                }else{
+                } else {
                     System.out.println("F | F");
                     assertFalse(falsey);
                     assertFalse(truthy);
@@ -127,7 +130,7 @@ public class SelectionExercisesTest {
     }
 
     @Test
-    public void countrySwitch(){
+    public void countrySwitch() {
 
         assertEquals("United Kingdom", countryOf("UK"));
         assertEquals("United States", countryOf("US"));
@@ -143,9 +146,9 @@ public class SelectionExercisesTest {
 
         String country;
 
-        switch(shortCode.toUpperCase()){
+        switch (shortCode.toUpperCase()) {
             case "UK":
-                country= "United Kingdom";
+                country = "United Kingdom";
                 break;
             case "US":
             case "USA":
@@ -167,7 +170,7 @@ public class SelectionExercisesTest {
 
 
     @Test
-    public void integerSwitch(){
+    public void integerSwitch() {
 
         assertEquals("One", integerString(1));
         assertEquals("Two", integerString(2));
@@ -181,9 +184,9 @@ public class SelectionExercisesTest {
 
     private String integerString(int anInt) {
 
-        String valReturn="";
+        String valReturn = "";
 
-        switch(anInt){
+        switch (anInt) {
             case 1:
                 valReturn = "One";
                 break;
@@ -197,10 +200,10 @@ public class SelectionExercisesTest {
                 valReturn = "Four";
                 break;
             default:
-                if(anInt < 1){
+                if (anInt < 1) {
                     valReturn = "Too small";
                 }
-                if(anInt > 4){
+                if (anInt > 4) {
                     valReturn = "Too big";
                 }
                 break;
@@ -211,7 +214,7 @@ public class SelectionExercisesTest {
 
 
     @Test
-    public void integerSwitchReturnOnly(){
+    public void integerSwitchReturnOnly() {
 
         assertEquals("One", integerStringUsingReturnOnly(1));
         assertEquals("Two", integerStringUsingReturnOnly(2));
@@ -224,7 +227,7 @@ public class SelectionExercisesTest {
     }
 
     private String integerStringUsingReturnOnly(int anInt) {
-        switch(anInt){
+        switch (anInt) {
             case 1:
                 return "One";
             case 2:
@@ -234,10 +237,10 @@ public class SelectionExercisesTest {
             case 4:
                 return "Four";
             default:
-                if(anInt < 1){
+                if (anInt < 1) {
                     return "Too small";
                 }
-                if(anInt > 4){
+                if (anInt > 4) {
                     return "Too big";
                 }
         }

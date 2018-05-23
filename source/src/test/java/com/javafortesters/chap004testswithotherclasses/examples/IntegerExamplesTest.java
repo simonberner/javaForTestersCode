@@ -1,20 +1,23 @@
 package com.javafortesters.chap004testswithotherclasses.examples;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class IntegerExamplesTest {
 
     @Test
-    public void integerExploration(){
+    public void integerExploration() {
         Integer four = new Integer(4);
-        assertEquals("intValue returns int 4",
-                     4, four.intValue());
+        assertEquals(4, four.intValue(), "intValue returns int 4");
+
         Integer five = new Integer("5");
-        assertEquals("intValue returns int 5",
-                     5, five.intValue());
+        assertEquals(5, five.intValue(), "intValue returns int 5");
+
+        // Autoboxing will automatically convert from a primitive type to the associated class automatically.
         Integer six = 6;
-        assertEquals("autoboxing assignment for 6",
-                      6, six.intValue());
+        assertEquals(6, six.intValue(), "intValue returns int 6");
     }
 }

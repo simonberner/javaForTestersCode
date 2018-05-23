@@ -1,13 +1,14 @@
 package com.javafortesters.chap006domainentities.exercises.publicfields;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTest {
 
     @Test
-    public void canConstructWithUsernameAndPassword(){
+    public void canConstructWithUsernameAndPassword() {
         User auser = new User();
         auser.username = "bob";
         assertEquals("not default username",
@@ -16,7 +17,7 @@ public class UserTest {
     }
 
     @Test
-    public void canSetNameToInvalidValue(){
+    public void canSetNameToInvalidValue() {
         User auser = new User();
         auser.username = "12345£$%$";
         assertEquals("invalid username",

@@ -1,13 +1,14 @@
 package com.javafortesters.booksupport.pretendwebdriver;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PretendFirefoxDriverTest {
 
     @Test
-    public void checkTitleCorrectOnApp(){
+    public void checkTitleCorrectOnApp() {
 
         FirefoxDriver driver = new FirefoxDriver();
         driver.get("http://192.123.0.3:67");

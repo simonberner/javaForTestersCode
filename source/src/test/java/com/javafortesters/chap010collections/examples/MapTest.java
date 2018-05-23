@@ -2,22 +2,21 @@ package com.javafortesters.chap010collections.examples;
 
 
 import com.javafortesters.domainentities.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MapTest {
 
     @Test
-    public void mapExplored(){
-        Map<String,User> mapa = new HashMap<>();
-        Map<String,User> mapb = new HashMap<String,User>();
-        Map<String,User> mapc = new <String,User>HashMap();
+    public void mapExplored() {
+        Map<String, User> mapa = new HashMap<>();
+        Map<String, User> mapb = new HashMap<String, User>();
+        Map<String, User> mapc = new <String, User>HashMap();
         /*
         map.containsKey(o)
         map.containsValue(o)
@@ -36,8 +35,8 @@ public class MapTest {
     }
 
     @Test
-    public void canAddKeyValuePairToAMap(){
-        Map<String,String> map = new HashMap<>();
+    public void canAddKeyValuePairToAMap() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -50,9 +49,9 @@ public class MapTest {
     }
 
     @Test
-    public void canRemoveKeyValuePairUsingKeyFromMap(){
+    public void canRemoveKeyValuePairUsingKeyFromMap() {
 
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -64,8 +63,8 @@ public class MapTest {
     }
 
     @Test
-    public void cannotRemoveKeyValuePairwhenKeyIsWrongFromMap(){
-        Map<String,String> map = new HashMap<>();
+    public void cannotRemoveKeyValuePairwhenKeyIsWrongFromMap() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -77,9 +76,9 @@ public class MapTest {
     }
 
     @Test
-    public void canRetrieveAValueFromMapWithKey(){
+    public void canRetrieveAValueFromMapWithKey() {
 
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -93,9 +92,9 @@ public class MapTest {
     }
 
     @Test
-    public void canEmptyAMapWithClear(){
+    public void canEmptyAMapWithClear() {
 
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -110,9 +109,9 @@ public class MapTest {
 
 
     @Test
-         public void canCheckContentsOfMap(){
+    public void canCheckContentsOfMap() {
 
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -126,10 +125,10 @@ public class MapTest {
     }
 
     @Test
-    public void canPutOneMapInAnotherMap(){
+    public void canPutOneMapInAnotherMap() {
 
-        Map<String,String> map = new HashMap<>();
-        Map<String,String> mapToAdd = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
+        Map<String, String> mapToAdd = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -145,16 +144,16 @@ public class MapTest {
     }
 
     @Test
-    public void canUseEntrySet(){
-        Map<String,String> map = new HashMap<>();
+    public void canUseEntrySet() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
         map.put("key3", "value3");
 
-        Set<Map.Entry<String,String>> entries = map.entrySet();
+        Set<Map.Entry<String, String>> entries = map.entrySet();
 
-        for( Map.Entry<String,String> entry : entries){
+        for (Map.Entry<String, String> entry : entries) {
             entry.setValue("bob");
         }
 
@@ -165,8 +164,8 @@ public class MapTest {
 
 
     @Test
-         public void canGetAllValues(){
-        Map<String,String> map = new HashMap<>();
+    public void canGetAllValues() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -178,8 +177,8 @@ public class MapTest {
     }
 
     @Test
-    public void canGetAllKeys(){
-        Map<String,String> map = new HashMap<>();
+    public void canGetAllKeys() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key1", "value1");
         map.put("key2", "value2");
@@ -191,8 +190,8 @@ public class MapTest {
     }
 
     @Test
-    public void canGetAllKeysAsSortedSet(){
-        Map<String,String> map = new HashMap<>();
+    public void canGetAllKeysAsSortedSet() {
+        Map<String, String> map = new HashMap<>();
 
         map.put("key2", "value2");
         map.put("key1", "value1");

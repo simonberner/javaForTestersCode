@@ -1,14 +1,14 @@
 package com.javafortesters.chap003myfirsttest.examples.naming;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NameClassTest {
     @Test
-    public void whenClassHasTestAtEndThenTestIsRun(){
+    public void whenClassHasTestAtEndThenTestIsRun() {
         // this test will run from maven so it needs to pass
-        assertTrue("whenClassHasTestAtEndThenTestIsRun",
-                    true);
+        assertTrue(true, "whenClassHasTestAtEndThenTestIsRun");
     }
 }

@@ -1,18 +1,19 @@
 package com.javafortesters.chap021collectionsrevisited.exercises;
 
 import com.javafortesters.domainentities.interim.comparator.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class SortedSetExercisesUserClassNoValEqualZeroComparatorTest {
 
     @Test
-    public void sortedSetWithComparatorForUserWithNoValEqualZero(){
+    public void sortedSetWithComparatorForUserWithNoValEqualZero() {
         User bob = new User("Bob", "pA55Word");   // 11
         User dupebob = new User("Bob", "hello");
         User rich = new User("Richie", "RichieRichieRich"); // 22
@@ -29,16 +30,16 @@ public class SortedSetExercisesUserClassNoValEqualZeroComparatorTest {
         userSortedList.add(dupebob2);
         assertEquals(2, userSortedList.size());
         userSortedList.add(mrBeer);
-        assertEquals("Mr Beer could not be added", 2, userSortedList.size());
+        assertEquals(2, userSortedList.size(), "Mr Beer could not be added");
     }
 
     private class UserComparatorDisallowDupesNoValEqualZero implements Comparator {
 
         public int compare(Object oUser1, Object oUser2) {
-            User user1 = (User)oUser1;
-            User user2 = (User)oUser2;
+            User user1 = (User) oUser1;
+            User user2 = (User) oUser2;
 
-            if(user1.getUsername().compareTo(user2.getUsername())==0){
+            if (user1.getUsername().compareTo(user2.getUsername()) == 0) {
                 return 0;
             }
 
@@ -48,7 +49,7 @@ public class SortedSetExercisesUserClassNoValEqualZeroComparatorTest {
             int user2Comparator = user2.getPassword().length() +
                     user2.getUsername().length();
 
-            int val =  user1Comparator - user2Comparator;
+            int val = user1Comparator - user2Comparator;
 
             // if(val==0){
             //     val = user1.getUsername().compareTo(user2.getUsername());

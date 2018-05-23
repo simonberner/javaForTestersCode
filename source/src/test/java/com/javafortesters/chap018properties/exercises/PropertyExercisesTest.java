@@ -1,8 +1,7 @@
 package com.javafortesters.chap018properties.exercises;
 
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,37 +11,39 @@ import java.util.Properties;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PropertyExercisesTest {
 
     @Test
-    public void canCreateAndListTheProperties(){
+    public void canCreateAndListTheProperties() {
 
         Properties properties = new Properties();
         properties.setProperty("name", "bob");
         properties.setProperty("gender", "male");
         properties.setProperty("password", "paSSw0rd");
 
-        assertThat(properties.stringPropertyNames().size(), is (3));
+        assertThat(properties.stringPropertyNames().size(), is(3));
 
-        for( String key : properties.stringPropertyNames()){
+        for (String key : properties.stringPropertyNames()) {
             System.out.println("Key: " + key + " " +
                     "Value: " + properties.getProperty(key));
         }
 
         properties.list(System.out);
 
-        Assert.assertTrue(properties.containsKey("gender"));
-        Assert.assertEquals("bob", properties.getProperty("name"));
-        Assert.assertEquals("Admin",
-                    properties.getProperty("permission", "Admin"));
+        assertTrue(properties.containsKey("gender"));
+        assertEquals("bob", properties.getProperty("name"));
+        assertEquals("Admin",
+                properties.getProperty("permission", "Admin"));
     }
 
     @Test
-    public void canAccessSystemProperties(){
+    public void canAccessSystemProperties() {
         System.out.println("More Details:");
         System.out.println("docs.oracle.com/javase/tutorial/" +
-                           "essential/environment/sysprop.html");
+                "essential/environment/sysprop.html");
 
         Properties sys = System.getProperties();
         sys.list(System.out);
@@ -53,9 +54,9 @@ public class PropertyExercisesTest {
 
         String tempDirectory = System.getProperty("java.io.tmpdir");
         String tempResourceFilePath = new File(tempDirectory,
-                                            System.currentTimeMillis() +
-                                            System.nanoTime() +
-                                            ".properties").getAbsolutePath();
+                System.currentTimeMillis() +
+                        System.nanoTime() +
+                        ".properties").getAbsolutePath();
 
         Properties saved = new Properties();
 
@@ -75,9 +76,9 @@ public class PropertyExercisesTest {
                 new FileReader(tempResourceFilePath);
         Properties loaded = new Properties();
 
-        try{
+        try {
             loaded.load(propertyFileReader);
-        }finally{
+        } finally {
             propertyFileReader.close();
         }
 

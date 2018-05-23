@@ -1,8 +1,7 @@
 package com.javafortesters.chap005testwithourownclasses.domainobject.exercises;
 
 import com.javafortesters.domainobject.TestAppEnv;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 // I could import everything on TestAppEnv statically, and then
 // I don't need to prefix getUrl with TestAppEnv
@@ -13,25 +12,26 @@ import static com.javafortesters.domainobject.TestAppEnv.*;
 // prefix getUrl with TestAppEnv
 import static com.javafortesters.domainobject.TestAppEnv.DOMAIN;
 import static com.javafortesters.domainobject.TestAppEnv.PORT;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class TestAppEnvironmentNoStaticImportTest {
 
     @Test
-    public void canGetUrlStatically(){
-        Assert.assertEquals("Returns Hard Coded URL",
+    public void canGetUrlStatically() {
+        assertEquals("Returns Hard Coded URL",
                 "http://192.123.0.3:67",
                 TestAppEnv.getUrl());
     }
 
     @Test
-    public void canGetDomainAndPortStatically(){
+    public void canGetDomainAndPortStatically() {
 
-        Assert.assertEquals("Just the Domain",
+        assertEquals("Just the Domain",
                 "192.123.0.3",
                 DOMAIN);
 
-        Assert.assertEquals("Just the port",
+        assertEquals("Just the port",
                 "67",
                 PORT);
     }

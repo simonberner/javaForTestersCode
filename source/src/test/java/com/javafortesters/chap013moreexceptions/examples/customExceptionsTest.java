@@ -2,32 +2,32 @@ package com.javafortesters.chap013moreexceptions.examples;
 
 import com.javafortesters.domainentities.interim.exceptions.custom.InvalidPassword;
 import com.javafortesters.domainentities.interim.exceptions.custom.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class customExceptionsTest {
 
     @Test
-    public void canCreateDefaultUserWithoutHandlingException(){
+    public void canCreateDefaultUserWithoutHandlingException() {
         User aUser = new User();
         assertEquals("username", aUser.getUsername());
         assertEquals("password", aUser.getPassword());
     }
 
     @Test
-    public void haveToCatchIllegalPasswordForParamConstructor(){
+    public void haveToCatchIllegalPasswordForParamConstructor() {
         try {
-            User aUser = new User("me","wrong");
+            User aUser = new User("me", "wrong");
             fail("An exception should have been thrown");
         } catch (InvalidPassword invalidPassword) {
-            assertTrue("The exception was thrown", true);
+            assertTrue(true, "The exception was thrown");
         }
     }
 
-    @Test(expected = InvalidPassword.class)
+    //@Test(expected = InvalidPassword.class)
     public void propogateIllegalPasswordExpected() throws InvalidPassword {
         User aUser = new User("me", "bad");
     }
