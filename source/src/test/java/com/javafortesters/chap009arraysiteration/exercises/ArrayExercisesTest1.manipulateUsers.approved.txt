@@ -1,0 +1,1 @@
+[com.javafortesters.chap009arraysiteration.exercises.ArrayExercisesTest1$User@436e852b, com.javafortesters.chap009arraysiteration.exercises.ArrayExercisesTest1$User@32d2fa64]

@@ -1,0 +1,5 @@
+[0] = Friday
+[1] = Thursday
+[2] = Tuesday
+[3] = Wednesday
+[4] = monday
